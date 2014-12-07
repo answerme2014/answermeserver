@@ -1,0 +1,117 @@
+
+
+/* 搜索框及按钮 */
+.span1 {
+	padding-top: 45px;
+	padding-bottom: 5px;
+	margin-left: 20%;
+	margin-right: 20%;
+	
+}
+/* 搜索框及按钮 结束 */
+
+.form-control{
+	border-color: #19B68A;
+}
+.input-group-btn .btn{
+    border-color: #19B68A;
+    color:#19B68A;
+}
+#search {
+
+}
+
+.class_text{
+	float:left;
+	width:600px;
+}
+
+.class_head {
+	margin-bottom: -5px;
+	padding-bottom: -10px;
+}
+
+.class_content{
+}
+
+.class_pic{ 
+	float:left;
+}
+
+.fans_num{
+   float: right;
+}
+
+.span2 {
+	padding-top: 5px;
+	padding-bottom: -10px;
+	margin-bottom: -12px;
+	margin-left: 100px;
+}
+.span3 {
+	padding-top: 5px;
+	margin-left: 100px;
+	border-top:1px solid #19B68A;
+
+}
+.clear{
+	clear:both;
+}
+.not_found {
+	padding-top: 5px;
+	  width:1000px;
+	margin:0 auto;
+	border-top:1px solid #19B68A;
+}
+.buttons {
+    width:200px;
+	margin:0 auto;
+}
+.blank{
+	height: 4000px;
+}
+.main{
+	width:850px;
+float: left;
+}
+.top10{
+	float: right;
+	margin-right: 200px;
+	height:100px;
+	width:15%;
+}
+.sum{
+width:1300px;
+}
+
+#myModal1{
+   /*z-index: */
+}
+
+#myModal2{
+	
+}
+
+#txt{
+	color: #19B68A;
+	font-size: 10px;
+}
+#top10title{
+	background-color:#19B68A;
+}
+.list-group-item{
+	height:40px;
+	font-size: 15px;
+}
+
+.like{
+	float: left;
+}
+
+.follow{
+	float: right;
+}
+
+.blank{
+		float: left;
+}

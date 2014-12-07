@@ -1,0 +1,18 @@
+.container .form-horizontal {
+	margin-top: 50px;
+}
+
+.container .form-group {
+	margin-top: 20px;
+	margin-left: 270px;
+	width: 600px;
+}
+
+.container .btn {
+	width: 120px;
+	margin-left: 48%;
+	margin-bottom: 5%;
+	background-color: #19B68A;
+	color: white;
+	font-weight: bold;
+}

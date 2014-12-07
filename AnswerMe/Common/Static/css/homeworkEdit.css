@@ -1,0 +1,124 @@
+#content{
+	width: 1170px;
+}
+/*文本编辑器————扁平化样式*/
+.navbar{
+	position: inherit!important;
+	margin-bottom: 0px!important;
+}
+#content {
+	margin-top: 0px!important;
+	padding-top: 30px;
+}
+.ed{
+	float: right;
+	margin-right: 10px;
+	line-height: 1.2;
+}
+#edui1{
+	border: 2px solid #E1E1E8;
+	border-radius: 6px
+}
+#edui1_toolbarbox{
+	background-image: none!important;
+	box-shadow: none;
+}
+#edui1_toolbarboxouter{
+	background-image: none!important;
+	border-bottom: none;
+	border-radius: 6px;
+	box-shadow: none;
+}
+/*编辑器样式结束*/
+
+/*左边导航样式*/
+.catalog{
+	border: 2px solid #E1E1E8;
+	border-radius: 6px;
+	width: 300px;
+	margin-left: 10px;
+	background-color:#eff0f2;
+	overflow: hidden;
+}
+.className{
+	background-color: #1abc9c;
+	border-radius: 6px 6px 0 0;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-bottom: -2px;
+}
+.homeworkContent li{
+	position: relative;
+	padding: 24px 20px 28px 25px;
+	margin-top: 2px;
+	font-size: 14px;
+	line-height: 1.214;
+	background: #34495e;
+	background-size: 20px 20px;
+}
+.homeworkContent ul{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	background-color: #2c3e50;
+	border-radius: 0 0 6px 6px;
+	border-bottom: 5px solid #2c3e50;
+	color: #fff;
+}
+.homeworkName{
+	margin: 1px 0 3px;
+	font-size: 17px;
+	font-family: inherit;
+	font-weight: 700;
+	line-height: 1.1;
+	color: inherit;
+}
+.editing{
+	color: #1ABC9C!important;
+	background: transparent!important;
+}
+.add{
+	float: right;
+	margin-left: 10px;
+	cursor: pointer;
+}
+.edit{
+	float: right;
+	cursor: pointer;
+}
+.edit:hover{
+	color: #1ABC9C!important;
+}
+.add:hover{
+	color: #1ABC9C!important;
+}
+button.submit{
+	margin-top: 10px;
+	float: left;
+	margin-left: 5px;
+	margin-bottom:5px;
+}
+button.cancel{
+	margin-top: 10px;
+	float: right;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+.tile{
+}
+li .fui-triangle-right-large{
+	float: left;
+}
+.addnew{
+	font-family: inherit;
+	font-weight: bold;
+	font-size: 15px;
+	cursor: pointer;
+}
+.addnew:hover{
+	color: #1ABC9C!important;
+}
+/*左边导航样式结束*/

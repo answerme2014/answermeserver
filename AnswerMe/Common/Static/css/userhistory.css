@@ -1,0 +1,100 @@
+
+body {
+	margin:0!important;
+}
+
+#content {
+
+	background-color: #FFF;
+	margin-bottom: 0!important;
+}
+
+.left {
+	margin: 45px 2px 0 11px;
+	float: left;
+}
+
+.left .col-xs-4 {
+	border-radius: 6px;
+	padding-left: 0;
+}
+
+.todo {
+	margin-bottom: 0!important;
+}
+.course-search-field {
+	width: 150px;
+}
+.search-type {
+	float: left;
+	background-color: #1abc9c;
+	font-family: "微软雅黑";
+	font-weight: bold;
+	margin-top: 1%;
+	border-color: #1abc9c;;
+}
+
+.search-type:after {
+	border-width: 0;
+}
+
+.search-type option {
+	font-family: "微软雅黑";
+	font-weight: bold;
+}
+.time-list {
+	height: 644px;
+	width: 268px;
+	overflow: auto;
+	background-color: #2c3e50;
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+
+.time-list li:after {
+	display: none;
+}
+
+.time-name {
+	text-align: center;
+}
+
+.right {
+	margin: 45px 11px 0 23px;
+	width: 810px;
+	height: 570px;
+	float: left;
+	background-color: #ecf0f1;
+	font-family: "微软雅黑";
+	border-radius: 6px;
+	overflow: auto;
+	overflow-x: hidden;
+	position: relative;
+}
+
+.record {
+    border-top: 1px dotted #19B68A;
+    border-bottom: 1px dotted #19B68A;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.record-item {
+    width: 80px;
+    text-align: center;
+}
+
+.record-course-name {
+    width: 230px;
+}
+.record-course-hw {
+	width: 180px;
+}
+
+.record-lastedit {
+	width: 220px;
+}
+
+.record-like {
+    width: 100px;
+}

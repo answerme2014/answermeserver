@@ -1,0 +1,142 @@
+/* 全局 */
+body {
+	background-color: #EDF2EF;
+	font-family: "微软雅黑",sans-serif;
+}
+a:hover{
+	color:#34495E!important;
+}
+/* 全局 结束 */
+/* 导航栏 */
+.navbar {
+	background-color: #19B68A;
+	position: fixed;
+	top:0px;
+	left: 0px;
+	width: 100%;
+	z-index: 99;
+	border-radius: 0px;
+}
+.navbar .navbar-header a {
+ 	margin-left: 10px;
+ 	margin-top: -10px;
+}
+
+.navbar .navbar-header img {
+	width: 55px;
+	height: 45px;
+}
+
+.navbar .navbar-header span {
+	font-size: 22px;
+}
+
+.navbar .navbar-header {
+	margin-top: 8px;
+}
+
+.navbar span{
+	font-weight: bolder;
+}
+.navbar .navbar-btn {
+	background-color: #19B68A;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.navbar .navbar-btn:hover {
+	background-color: #1C9271;
+}
+/*右侧状态栏*/
+/*已登陆*/
+.loged{
+	float: right;
+	padding-top: 11px;
+	margin-right: 30px;
+	display: inherit;
+}
+.loged a{
+	color: white;
+	font-weight: bolder;
+	margin-right: 10px;
+	font-size: 18px;
+}
+.loged span{
+	color: white;
+	font-weight: bolder;
+}
+/*未登录*/
+.unloged{
+	display: inherit;
+	margin-right: 30px;
+	display: none;
+}
+
+#chooseBtn {
+	background-color: #19B68A;
+	font-weight: bolder;
+	font-size: 18px;
+	margin-bottom: 7%;
+	margin-left: -10%;
+}
+
+.loged .btn-default:hover{
+	color: #34495E;
+}
+
+.dropdown-menu {
+	min-width: 100px;
+}
+/* 导航栏 结束 */
+
+#freeLog {
+	margin-left: 10%;
+}
+
+#forgetPassword {
+	margin-left: 10%;
+}
+
+#modalLogin .modal-footer .btn{
+	background-color: #19B68A;
+	color: white;
+	font-weight: bolder;
+}
+
+#modalRegister .modal-footer .btn{
+	background-color: #19B68A;
+	color: white;
+	font-weight: bolder;
+}
+
+#selectSchool {
+	width: 468px;
+	height: 42px;
+	margin-left: 23%;
+}
+
+#selectCollege {
+	width: 468px;
+	height: 42px;
+	margin-left: 23%;
+}
+
+#selectMajor {
+	width: 468px;
+	height: 42px;
+	margin-left: 23%;
+}
+
+#selectYear {
+	width: 468px;
+	height: 42px;
+	margin-left: 23%;
+}
+
+/* 内容 */
+#content {
+	margin-top: 45px;
+	background-color: #FFF;
+	height: 100%;
+}
+/* 内容 结束 */

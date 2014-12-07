@@ -1,0 +1,186 @@
+.loged {
+	display: inherit;
+}
+
+.unloged {
+	display: none;
+}
+
+body {
+	margin:0!important;
+}
+
+#content {
+	background-color: #FFF;
+	margin-bottom: 0!important;
+}
+
+.left {
+	margin: 45px 2px 0 11px;
+	float: left;
+}
+
+.left .col-xs-4 {
+	border-radius: 6px;
+}
+
+.todo {
+	margin-bottom: 0!important;
+}
+
+.course-list {
+	height: 576px;
+	width: 268px;
+	overflow: auto;
+	background-color: #2c3e50;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.course-search-field {
+	width: 170px;
+}
+
+.search-type {
+	float: left;
+	background-color: #1abc9c;
+	font-family: "微软雅黑";
+	font-weight: bold;
+	margin-top: 1%;
+	border-color: #1abc9c;;
+}
+
+.search-type:after {
+	border-width: 0;
+}
+
+.search-type option {
+	font-family: "微软雅黑";
+	font-weight: bold;
+}
+
+.course-list li:after {
+	display: none;
+}
+
+.course-name {
+	text-align: center;
+}
+
+.right {
+	margin: 45px 11px 0 330px;
+	width: 810px;
+	height: 576px;
+	float: right;
+	background-color: #ecf0f1;
+	font-family: "微软雅黑";
+	border-radius: 6px;
+	overflow: auto;
+	overflow-x: hidden;
+	position: absolute;
+}
+
+.homework {
+	width: 805px;
+	height: 510px;
+}
+
+.homework ul {
+	padding-left: 8px;
+}
+
+.homework li{
+	list-style: none;
+}
+
+.homework-list-item {
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: 15px;
+	border-radius: 6px;
+	border-style: solid;
+	border-width: 3px;
+	background-color: #f7f7f9;
+	border-color: #e1e1e8;
+	padding-bottom: 5px;
+}
+
+.homework-content {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-right: 15px;
+	padding-left: 15px;
+	font-size: 15px;
+}
+
+.homework-contents{
+	font-size: 15px;
+	margin-left: 10px;
+}
+
+.hw-tag {
+	font-weight: bold;
+	margin-left: 0px;
+	margin-right: -4px;
+}
+
+.hw-count {
+	margin-left: 2px;
+	margin-right: -2px;
+}
+
+.hw-ddl {
+	font-weight: bold;
+}
+
+.hw-ddl-date {
+	color: #e74c3c!important;
+	font-weight: bold;
+	margin-left: 10px;
+}
+
+.hw-course {
+	font-size: 17px;
+}
+
+.finish-bt {
+	position: relative;
+	margin-bottom: 10px;
+	margin-left: 500px;
+}
+
+.finish-bt .btn {
+	width: 60px;
+	height: 40px;
+	font-weight: bold;
+}
+
+.homework-list {
+	display: inherit;
+}
+
+.tips {
+	margin-top: 200px;
+	margin-left: 160px;
+	display: none;
+}
+
+.tips img {
+	width: 80px;
+	margin-right: 10px;
+}
+
+.course-page {
+	display: none;
+}
+
+#download {
+	background-color: #1abc9c;
+	border-radius: 6px;
+}
+
+.fui-heart:after {
+	color: #dc143c!important;
+}

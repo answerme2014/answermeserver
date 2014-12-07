@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<!--题目-->
+		<title>AnswerMe-Interest</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap CSS-->
+		<link href="__CSS__/bootstrap.min.css" rel="stylesheet">
+		<!-- Flat UI CSS-->
+		<link href="__CSS__/flat-ui.css" rel="stylesheet">
+		<!--模板css-->
+		<link href="__CSS__/template.css" rel="stylesheet">
+		<!--添加你的CSS-->
+		<link href="__CSS__/interest.css" rel="stylesheet">
+
+		<!--收藏夹图标-->
+		<link rel="shortcut icon" href="__RESOURCE__/favor-icon.jpg">
+	</head>
+	
+	<body>	
+		<!-- 导航栏 -->
+		<nav class="navbar navbar-inverse" role="navigation">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="home.html">
+					<img src="__RESOURCE__/logo-green.jpg">
+					<span>Answer Me</span>
+				</a>
+			</div>
+			<!--导航栏右侧状态(未登录/登陆后)-->
+			<div class="collapse navbar-collapse" id="navbar-collapse-01">
+				<div class="loged">
+					<span class="fui-user"></span>
+					<a href="myhome.html" id="usersname">KenLee</a>
+					<span class="fui-heart"></span>
+					<a href="/like.html" class="like-num">256</a>
+					<div class="btn-group">
+					  <button id="chooseBtn" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					   more <span class="caret"></span>
+					  </button>
+					  <ul id="dropdownMenu" class="dropdown-menu" role="menu">
+					    <li><a href="#">编辑历史</a></li>
+					    <li><a href="#">设置</a></li>
+					    <li class="divider"></li>
+					    <li><a href="home.html">退出</a></li>
+					  </ul>
+					</div>
+				</div>
+				<div class="unloged">
+					<div id="btnNav" class="nav navbar-nav navbar-right btn-group">
+						<button id="btnRegister" class="btn btn-sm navbar-btn" type="button" data-toggle="modal" data-target="#modalLogin">登录</button>
+						<button id="btnLogin" class="btn btn-sm navbar-btn" type="button" data-toggle="modal" data-target="#modalRegister">注册</button>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<!-- /.导航栏 -->
+
+		<!-- 模态框 -->
+		<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+					<span class="sr-only">Close</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">登录</h4>
+			</div>
+			<div class="modal-body">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label for="inputUsername" id="labelUsername" class="col-sm-2 control-label">账号</label>
+								<div class="col-sm-10">
+									<input type="username" class="form-control" id="inputUsername" placeholder="输入账号">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputPassword" id="labelPassword" class="col-sm-2 control-label">密码</label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="inputPassword" placeholder="输入密码">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+									<div class="checkbox">
+										<label>
+											<input type="checkbox"> 记住我
+										</label>
+										<label id="freeLog">
+											<input type="checkbox"> 自动登录
+										</label>
+										<label id="forgetPassword">
+											<input type="checkbox"> 忘记密码
+										</label>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-block" data-dismiss="modal">登录</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="modalRegister" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title" id="myModalLabel">注册</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label for="inputUsername1" class="col-sm-2 control-label">用户名</label>
+								<div class="col-sm-10">
+									<input type="email" class="form-control" id="inputUsername1">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputPassword1" class="col-sm-2 control-label">密码</label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="inputPassword1">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputRepeatpassword" class="col-sm-2 control-label">重复密码</label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="inputRepeatpassword">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputEmail" class="col-sm-2 control-label">邮箱</label>
+								<div class="col-sm-10">
+									<input type="email" class="form-control" id="inputEmail">
+								</div>
+							</div>							
+							<div class="form-group">
+								<label for="inputSchool" class="col-sm-2 control-label">学校</label>
+								<select class="form-control" id="selectSchool">
+									<option>选择你的学校</option>
+									<option>中山大学</option>
+									<option>清华大学</option>
+									<option>北京大学</option>
+									<option>华南理工大学</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="inputCollege" class="col-sm-2 control-label">学院</label>
+								<select class="form-control" id="selectCollege">
+									<option>选择你的学院</option>
+									<option>软件学院</option>
+									<option>岭南学院</option>
+									<option>医学院</option>
+									<option>社会教育学院</option>
+									<option>信息科学与技术学院</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="inputMajor" class="col-sm-2 control-label">专业</label>
+								<select class="form-control" id="selectMajor">
+									<option>选择你的专业</option>
+									<option>数字媒体</option>
+									<option>电子政务</option>
+									<option>嵌入式软件</option>
+									<option>通用软件</option>
+									<option>计算机应用</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="inputYear" class="col-sm-2 control-label">入学年份</label>
+								<select class="form-control" id="selectYear">
+									<option>选择你的入学年份</option>
+									<option>2014</option>
+									<option>2013</option>
+									<option>2012</option>
+									<option>2011</option>
+									<option>2010</option>
+								</select>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-block">确认注册</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.模态框 -->
+		<!-- 内容 -->
+		<div id="content" class="container">
+			<!-- 大家在content中填写自己的页面内容 -->
+			<!-- 把你的css添加到上面的css中，把你的js添加到下面的js中-->
+			<!-- 除了添加，不要改动一切其他东西-->
+			 <div id="wordInterest">请选择您感兴趣的课程：</div>
+		      <div class="bookDiv">
+		        <a href="classpage.html">
+			        <img id="book1" class="img-thumbnail" src="__RESOURCE__/book_1.jpg"></img>
+			        <div class="bookName">电子商务物流</div>
+		        </a> 
+		        <div class="checkbox">
+		          <label>
+		            <input type="checkbox" name="box" value="0" > 选择关注
+		          </label>
+		        </div>
+		      </div>
+		      <div class="bookDiv ">
+		      	<a href="classpage.html">
+			        <img id="book2" class="img-thumbnail" src="__RESOURCE__/book_2.jpg"/>
+			        <div class="bookName">实用软件工程</div> 
+		      	</a>
+		        <div class="checkbox">
+		          <label>
+		            <input type="checkbox" name="box" value="1"> 选择关注
+		          </label>
+		        </div>
+		      </div>
+		      <div class="bookDiv">
+		      	<a href="classpage.html">
+		        	<img id="book3" class="img-thumbnail" src="__RESOURCE__/book_3.jpg"/>
+		        	<div class="bookName">高等数学导论</div> 
+		      	</a>
+		        <div class="checkbox">
+		          <label>
+		            <input type="checkbox" name="box" value="2"> 选择关注
+		          </label>
+		        </div>
+		      </div>
+		      <div class="bookDiv">
+		      	<a href="classpage.html">
+		        	<img id="book4" class="img-thumbnail" src="__RESOURCE__/book_4.jpg"/>
+		        	<div class="bookName">线性代数简明教程</div>
+		        </a>
+		        <div class="checkbox">
+		          <label>
+		            <input type="checkbox" name="box" value="3"> 选择关注
+		          </label>
+		        </div>        
+		      </div>
+		      <div class="bookDiv">
+		      	<a href="classpage.html">
+		        	<img id="book5" class="img-thumbnail" src="__RESOURCE__/book_5.jpg"/>
+		        	<div class="bookName">离散数学</div>
+		        </a> 
+		        <div class="checkbox">
+		          <label>
+		            <input type="checkbox" name="box" value="4"> 选择关注
+		          </label>
+		        </div>        
+		      </div>
+		      <div class="bookDiv">
+		        <a href="classpage.html">
+		        	<img id="book6" class="img-thumbnail" src="__RESOURCE__/book_6.jpg"/>
+		        	<div class="bookName">数字集成电路</div>
+		        </a> 
+		        <div class="checkbox">
+		          <label>
+		            <input type="checkbox" name="box" value="5"> 选择关注
+		          </label>
+		        </div>
+		      </div>
+		      <div class="bookDiv">
+		      	<a href="classpage.html">
+			        <img id="book7" class="img-thumbnail" src="__RESOURCE__/book_7.jpg"/>
+			        <div class="bookName">数据库系统教程</div>
+		     	 </a>
+		        <div class="checkbox">
+		          <label>
+		            <input type="checkbox" name="box" value="6"> 选择关注
+		          </label>
+		        </div>
+		      </div>
+		      <div class="bookDiv">
+		      	<a href="classpage.html">
+			        <img id="book8" class="img-thumbnail" src="__RESOURCE__/book_8.jpg"/>
+			        <div class="bookName">计算机网络教程</div>
+			      </a>
+		        <div class="checkbox">
+		          <label>
+		            <input type="checkbox" name="box" value="7"> 选择关注
+		          </label>
+		        </div>
+		      </div>
+		      <div id=btnComplete>
+		        <a href="myhome.html"><button id="btnComplete" type="button" class="btn btn-primary btn-lg col-sm-offset-5">完成</button></a>
+		      </div>
+		</div>
+		<!-- jQuery 的js -->
+		<script src="__JS__/jquery.min.js"></script>
+		<!-- 其他插件的js -->
+		<script src="__JS__/flat-ui.min.js"></script>
+		<script src="__JS__/prettify.js"></script>
+		<script src="__JS__/application.js"></script>
+		<script src="__JS__/interest.js"></script>
+		<!--添加你的js文件-->
+	</body>
+</html>
