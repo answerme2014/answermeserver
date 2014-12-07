@@ -29,11 +29,11 @@
       </div>
       <!--导航栏右侧状态(未登录/登陆后)-->
       <div class="collapse navbar-collapse" id="navbar-collapse-01">
-        <div class="loged">
+        <div class="loged hidden">
           <span class="fui-user"></span>
-          <a href="myhome.html" id="usersname">KenLee</a>
+          <a href="myhome.html" id="usersname"></a>
           <span class="fui-heart"></span>
-          <a href="like.html" class="like-num">256</a>
+          <a href="like.html" class="like-num"></a>
           <div class="btn-group">
             <button id="chooseBtn" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
              more <span class="caret"></span>
@@ -42,11 +42,11 @@
               <li><a href="userHistory.html">编辑历史</a></li>
               <li><a href="settings.html">设置</a></li>
               <li class="divider"></li>
-              <li><a href="/home.html">退出</a></li>
+              <li><a id="logout_">退出</a></li>
             </ul>
           </div>
         </div>
-        <div class="unloged">
+        <div class="unloged ">
           <div id="btnNav" class="nav navbar-nav navbar-right btn-group">
             <button id="btnRegister" class="btn btn-sm navbar-btn" type="button" data-toggle="modal" data-target="#modalLogin">登录</button>
             <button id="btnLogin" class="btn btn-sm navbar-btn" type="button" data-toggle="modal" data-target="#modalRegister">注册</button>
@@ -98,7 +98,7 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-block" data-dismiss="modal">登录</button>
+            <button type="button" class="btn btn-block" data-dismiss="modal" id="login_">登录</button>
           </div>
         </div>
       </div>
@@ -183,7 +183,7 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-block">确认注册</button>
+            <button type="button" class="btn btn-block" id="register_">确认注册</button>
           </div>
         </div>
       </div>
@@ -293,6 +293,8 @@
     <script src="__JS__/prettify.js"></script> 
     <script src="__JS__/application.js"></script> 
     <script src="__JS__/home.js"></script> 
-    <script src="__JS__/template.js"></script> 
+    <script src="__JS__/template.js"></script>
+    <script src="__JS__/jquery.cookie.js"></script>
+    <script src="__JS__/jquery.cookie.js"></script>
  </body>
 </html>

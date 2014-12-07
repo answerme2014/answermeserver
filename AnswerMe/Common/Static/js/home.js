@@ -83,7 +83,7 @@ else{
     good1 = 0;
     return parseInt(m)-1+"赞";
   }
-  });
+ 
   $.ajax({
              type: "GET",
              url: "test.json",
@@ -92,8 +92,9 @@ else{
              success: function(){
                          
                       }
-                  }
+                  
          });
+});
 });
 
         $(".follow").click(function(){
@@ -120,11 +121,7 @@ else{
              success: function(){
                          
                       }
-                  }
+                  
          });
 });
 });
-
-
-  
-   

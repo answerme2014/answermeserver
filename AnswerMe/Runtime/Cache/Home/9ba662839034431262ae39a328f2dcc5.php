@@ -42,7 +42,7 @@
 					    <li><a href="#">编辑历史</a></li>
 					    <li><a href="#">设置</a></li>
 					    <li class="divider"></li>
-					    <li><a href="home.html">退出</a></li>
+					    <li><a id="logout_">退出</a></li>
 					  </ul>
 					</div>
 				</div>
@@ -99,7 +99,7 @@
 						</form>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-block" data-dismiss="modal">登录</button>
+						<button type="button" class="btn btn-block" data-dismiss="modal" id="login_">登录</button>
 					</div>
 				</div>
 			</div>
@@ -184,7 +184,7 @@
 						</form>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-block">确认注册</button>
+						<button type="button" class="btn btn-block" id="register_">确认注册</button>
 					</div>
 				</div>
 			</div>
@@ -295,6 +295,7 @@
 		<script src="/answer_me/AnswerMe/Common/Static/js/prettify.js"></script>
 		<script src="/answer_me/AnswerMe/Common/Static/js/application.js"></script>
 		<script src="/answer_me/AnswerMe/Common/Static/js/interest.js"></script>
+		<script src="/answer_me/AnswerMe/Common/Static/js/jquery.cookie.js"></script>
 		<!--添加你的js文件-->
 	</body>
 </html>
