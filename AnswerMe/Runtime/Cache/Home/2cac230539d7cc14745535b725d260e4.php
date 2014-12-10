@@ -295,6 +295,5 @@
     <script src="/answer_me/AnswerMe/Common/Static/js/home.js"></script> 
     <script src="/answer_me/AnswerMe/Common/Static/js/template.js"></script>
     <script src="/answer_me/AnswerMe/Common/Static/js/jquery.cookie.js"></script>
-    <script src="/answer_me/AnswerMe/Common/Static/js/jquery.cookie.js"></script>
  </body>
 </html>

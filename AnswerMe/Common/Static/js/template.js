@@ -15,7 +15,7 @@ $(document).ready(function() {
 
 function init() {
     var username = $.cookie("username");
-    var likenum = $.cookie("likenum");
+    var likenum = $.cookie("experience");
     if (username&&likenum) {
       $("#usersname").text(username);
       $(".like-num").text(likenum);
@@ -46,7 +46,7 @@ function login() {
                 
                 //将用户名保存在cookie里
                 $.cookie("username", data.username, {expires: 7, path: '/'});
-                $.cookie("likenum", data.experience, {expires: 7, path: '/'});
+                $.cookie("experience", data.experience, {expires: 7, path: '/'});
             } else {
                 alert(data.msg);
             }
@@ -66,6 +66,7 @@ function logout() {
            if(data.status == 1){
                 //清除cookie
                 $.cookie('username', null, {expires: -1, path: '/'});
+                $.cookie("experience", null, {expires: -1, path: '/'});
 
                 $('.unloged').removeClass("hidden");
                 $(".loged").addClass("hidden");
@@ -76,28 +77,56 @@ function logout() {
         }
     });
 }
+function valid_username(user) {
+        var patten = new RegExp(/^[a-zA-Z0-9_\u4e00-\u9fa5]+$/);
+        return patten.test(user);
+}
+
+function valid_email(email) {
+        var patten = new RegExp(/^[a-z0-9_\-]+(\.[_a-z0-9\-]+)*@([_a-z0-9\-]+\.)+([a-z]{2}|aero|arpa|biz|com|coop|edu|gov|info|int|jobs|mil|museum|name|nato|net|org|pro|travel)$/);
+        return patten.test(email);
+}
+
+function valid_password(pass) {
+        var patten = new RegExp(/^[a-zA-Z]w{5,17}$/);
+        return patten.test(pass);
+}
 
 function register() {
-    if( $('#inputUsername1').val()== "" || $('#inputPassword1').val()== "" || $("#inputPassword1").val()== "" || $("#inputEmail").val()== "" || $("#selectSchool").val()== "" || $("#selectCollege").val()== "" || $("#selectMajor").val()== "" || $("#selectYear").val()== ""){
-        alert("您输入的信息不完整，请重新输入");
-    } else if( $('#inputPassword1').val() != $('#inputRepeatpassword').val()){
-        alert("您输入的密码不相符，请重新输入");
-        $('#inputPassword1').value=""; 
-    } else {
+    var user=$("#inputUsername1").val();
+    var email=$("#inputEmail").val();
+    var pass=$("#inputPassword1").val();
+    // if( $('#inputUsername1').val()== "" || $('#inputPassword1').val()== "" || $("#inputRepeatpassword").val()== "" || $("#inputEmail").val()== "" || $("#selectSchool").val()== "" || $("#selectCollege").val()== "" || $("#selectMajor").val()== "" || $("#selectYear").val()== ""){
+    //     alert("您输入的信息不完整，请重新输入");
+    // } else if(valid_username(user)){
+    //     alert("您输入的邮箱格式有误，请重新输入");
+    //     $('#inputEmail').value=""; 
+    // } else if( $('#inputPassword1').val() != $('#inputRepeatpassword').val()){
+    //     alert("您输入的密码不相符，请重新输入");
+    //     $('#inputPassword1').value=""; 
+    //     $("#inputRepeatpassword").value= "";
+    // } else if(valid_password(pass)){
+    //     alert("您输入的密码格式有误，请输入6-18位的数字或字母");
+    //     $('#inputPassword1').value=""; 
+    //     $("#inputRepeatpassword").value= "";
+    // } else if(valid_email(email)){
+    //     alert("您输入的邮箱格式有误，请重新输入");
+    //     $('#inputEmail').value=""; 
+    // } else {
         $.ajax({
             type: "POST",
             url: "http://localhost/answer_me/home.php/MainNavigation/register",
             data: {username:$("#inputUsername1").val(),password:$("#inputPassword1").val(),email:$("#inputEmail").val(),school:$("#selectSchool").val(),college:$("#selectCollege").val(),profession:$("#selectMajor").val(),year:$("#selectYear").val()},
             dataType: "json",
             success: function(data) {
-                alert();
                 if (data.status == 1) {
                     //将用户名保存在cookie里
                     $.cookie("username", data.username, {expires: 7, path: '/'});
+                    $.cookie("experience", data.experience, {expires: 7, path: '/'});
                     alert("注册成功！");
 
                     //将页面重定向到“感兴趣的课程页面”
-                    window.location.href = "../InterestPage/" + data.uid;
+                    window.location.href = "../InterestPage";
                 } else {
                     alert(data.msg);
                 }
@@ -106,5 +135,5 @@ function register() {
                 alert("ajax访问失败！");
             }
         });
-    }
+    // }
 }
