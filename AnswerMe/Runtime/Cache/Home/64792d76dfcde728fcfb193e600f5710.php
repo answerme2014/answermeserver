@@ -28,7 +28,7 @@
 			</div>
 			<!--导航栏右侧状态(未登录/登陆后)-->
 			<div class="collapse navbar-collapse" id="navbar-collapse-01">
-				<div class="loged">
+				<div class="loged hidden">
 					<span class="fui-user"></span>
 					<a href="myhome.html" id="usersname">KenLee</a>
 					<span class="fui-heart"></span>
@@ -41,7 +41,7 @@
 					    <li><a href="#">编辑历史</a></li>
 					    <li><a href="#">设置</a></li>
 					    <li class="divider"></li>
-					    <li><a href="/home.html">退出</a></li>
+					    <li><a id="logout_">退出</a></li>
 					  </ul>
 					</div>
 				</div>
@@ -97,7 +97,7 @@
 						</form>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-block" data-dismiss="modal">登录</button>
+						<button type="button" class="btn btn-block" data-dismiss="modal" id="login_">登录</button>
 					</div>
 				</div>
 			</div>
@@ -182,7 +182,7 @@
 						</form>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-block">确认注册</button>
+						<button type="button" class="btn btn-block" id="register_">确认注册</button>
 					</div>
 				</div>
 			</div>
@@ -262,5 +262,7 @@
 	    <script type="text/javascript" charset="utf-8" src="/answer_me/AnswerMe/Common/Static/ueditor/kityformula-plugin/defaultFilterFix.js"></script>
 	    <!--自定义js-->
 	   	<script type="text/javascript" charset="utf-8" src="/answer_me/AnswerMe/Common/Static/js/homeworkEdit.js"></script>
+	   	<script src="/answer_me/AnswerMe/Common/Static/js/jquery.cookie.js"></script>
+	   	<script src="/answer_me/AnswerMe/Common/Static/js/template.js"></script>
 	</body>
 </html>

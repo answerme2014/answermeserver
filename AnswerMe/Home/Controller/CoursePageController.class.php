@@ -11,8 +11,7 @@ class CoursePageController extends Controller {
      */
     public function getCourseData(){
         //$cid =$_GET["cid"];
-        $cid = I('post.cid');
-        //$cid=$_POST["cid"];
+        $cid=$_POST["cid"];
         //query index
         $courseIndex = M('courseindex');
         $index = $courseIndex->where('cid='.$cid)->find();
@@ -81,7 +80,6 @@ class CoursePageController extends Controller {
         $follow = $_POST['follow'];
         $data=array();
         //get uid
-        $uid='110010';
         $uid = $_SESSION['uid'];
         $take = M('take');
         if($follow=='1'){
@@ -101,7 +99,19 @@ class CoursePageController extends Controller {
         }
         $this->ajaxReturn($data,'json');
     }
+    /**
+     * Request : {cid,teacher,course_place,course_time}
+     * Reply : failed: {status:0}
+     *         succeed:{json array for a SINGLE course data} 
+     */
     public function changeCourseInfo() {
-
+        $cid = $_POST['cid'];
+        $teacher = $_POST['teacher'];
+        $coursePlace = $_POST['course_place'];
+        $courseTime = $_POST['course_time'];
+        $data = array();
+        $version = M('courseindex')->where('cid='.$cid)->find();
+        dump($version);
+        
     }
 }
