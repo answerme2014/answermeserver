@@ -86,27 +86,34 @@ class CoursePageController extends Controller {
     public function followCourse() {
         //$cid = $_GET['cid'];
         //$follow = $_GET['follow'];
+        $status = 1;
         $cid = $_POST['cid'];
         $follow = $_POST['follow'];
         $data=array();
         //get uid
         $uid = $_SESSION['uid'];
         $take = M('take');
+        $courseIndex = M('courseindex');
         if($follow=='1'){
+            //add data in 'take' table
             $followData['uid'] = $uid;
             $followData['cid'] = $cid;
             $followData['HW_now'] = 0;
             if(!$take->add($followData))
-                $data['status']=0;
-            else
-                $data['status']=1;
+                $status = 0;
+            //change courseIndex
+            if(!$courseIndex->where('cid='.$cid)->setInc('taken_number'))
+                $status = 0;
         }
         else{
+            //delete data
             if(!$take->where('uid='.$uid.' AND cid='.$cid)->delete())
-                $data['status']=0;
-            else
-                $data['status']=1;
+                $status=0;
+            //change courseIndex
+            if(!$courseIndex->where('cid='.$cid)->setDec('taken_number'))
+                $status = 0;
         }
+        $data['status']=$status;
         $this->ajaxReturn($data,'json');
     }
     /**修改课程信息
