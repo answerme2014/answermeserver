@@ -101,17 +101,51 @@ class CoursePageController extends Controller {
     }
     /**
      * Request : {cid,teacher,course_place,course_time}
-     * Reply : failed: {status:0}
+     * Reply : failed: {status!=1}
      *         succeed:{json array for a SINGLE course data} 
      */
     public function changeCourseInfo() {
+        // $cid = $_GET['cid'];
+        // $teacher = $_GET['teacher'];
+        // $coursePlace = $_GET['course_place'];
+        // $courseTime = $_GET['course_time'];
+        //succeed or failed flag
+        $status=1;
+        //get params
         $cid = $_POST['cid'];
         $teacher = $_POST['teacher'];
         $coursePlace = $_POST['course_place'];
         $courseTime = $_POST['course_time'];
-        $data = array();
-        $version = M('courseindex')->where('cid='.$cid)->find();
-        dump($version);
-        
+        //get newest ver.
+        $courseIndex= M('courseindex');
+        $version=$courseIndex->where('cid='.$cid)->find();
+        if(!$version)
+            $status=0;
+        $version = $version['version'];
+        $course = M('course');
+        //get coursedata
+        $courseData = $course->where('cid='.$cid.' AND version='.$version)->find();
+        if(!$courseData)
+            $status=-1;
+        //change coursedata
+        $courseData['teacher'] = $teacher; 
+        $courseData['course_place'] = $coursePlace;
+        $courseData['course_time'] =$courseTime;
+        $courseData['version'] =  (string)(intval($courseData['version'])+1);
+        //change index
+        if(!$courseIndex->where('cid='.$cid)->setInc('version'))
+            $status=-2;
+        //dump($courseData);
+        //write back to DB
+        if(!$course->add($courseData))
+            $status=-3;
+        //from json array
+        $data=array();
+        if($status==1)
+            $data=$courseData;
+        else
+            //$data=$courseData;
+            $data['status']=$status;
+        $this->ajaxReturn($data,'json');
     }
 }
