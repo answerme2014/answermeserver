@@ -5,7 +5,7 @@ class CoursePageController extends Controller {
     public function index($cid){
         $this->display();
     }
-    /**
+    /**获取课程数据
      * Request: courseId
      * Reply: json array for a SINGLE course data
      */
@@ -21,9 +21,19 @@ class CoursePageController extends Controller {
         $data['like_number']=$index['like_number'];
         $data['taken_number']=$index['taken_number'];
         //dump($data);
+        //if the user logged
+        if(isset($_SESSION['uid'])){
+            $uid = $_SESSION['uid'];
+            $take = M('take');
+            $follow = $take->where('uid='.$uid.' AND cid='.$cid)->find();
+            if($follow == null)
+                $data['is_follow']=0;
+            else
+                $data['is_follow']=1;
+        }
         $this->ajaxReturn($data,'json');
     }
-    /**
+    /**获取作业数据
      * Request: courseId
      * Reply: json array for MUTIPLE homeworks data
      */
@@ -44,7 +54,7 @@ class CoursePageController extends Controller {
         //dump($data);
         $this->ajaxReturn($data,'json');
     }
-     /**
+     /**点赞/取消点赞
      * Request: {courseId,good}
      * Reply: status = 1/0 for success/failed
      */
@@ -69,7 +79,7 @@ class CoursePageController extends Controller {
         }
         $this->ajaxReturn($data,'json');
      }
-     /**
+     /**关注/取消关注课程
      * Request : {cid,follow}
      * Reply : status = 1/0 for success/failed
      */
@@ -85,7 +95,7 @@ class CoursePageController extends Controller {
         if($follow=='1'){
             $followData['uid'] = $uid;
             $followData['cid'] = $cid;
-            $followData['HW_now'] = 1;
+            $followData['HW_now'] = 0;
             if(!$take->add($followData))
                 $data['status']=0;
             else
@@ -99,7 +109,7 @@ class CoursePageController extends Controller {
         }
         $this->ajaxReturn($data,'json');
     }
-    /**
+    /**修改课程信息
      * Request : {cid,teacher,course_place,course_time}
      * Reply : failed: {status!=1}
      *         succeed:{json array for a SINGLE course data} 
