@@ -6,6 +6,7 @@
  */
 namespace Home\Controller;
 use Think\Controller;
+header("Content-type:text/html;charset=utf-8");
 class PersonalPageController extends Controller {
     public function index(){
     	//从session中取得uid
@@ -20,16 +21,18 @@ class PersonalPageController extends Controller {
         	->select();
         $homeworkfind = array();
         for ($i=0; $i < sizeof($takefind); $i++) { 
-        	$homeworkindexfind = $homeworkindex->join('contain ON homeworkindex.hid = contain.hid')
-        		->where('cid='.$takefind['cid'].' AND order='.$takefind[$i]['HW_now'])
-        		->field('hid, version')
-        		->find();
+        	$homeworkindexfind = $homeworkindex->table('homeworkindex H')
+        		->join('contain C on H.hid = C.hid')
+        		->where("C.cid=".$takefind[$i]['cid']." AND H.order=".$takefind[$i]['HW_now'])
+        		->field('C.hid, H.version')
+        		->select();
         	$homeworkfind[$i] = $homework->where($homeworkindexfind)
-        		->field('hid, hversion as version, title, due_time, content')
+        		->field('hid, version, title, due_time, content')
         		->find();
-        	$coursefind = $courseindex->join('course ON courseindex.cid = course.cid AND courseindex.version = course.version')
-        		->where('cid='.$takefind['cid'])
-        		->field('cid, version, course_name')
+        	$coursefind = $courseindex->table('courseindex CI')
+        		->join('course C on CI.cid = C.cid AND CI.version = C.version')
+        		->where('C.cid='.$takefind[$i]['cid'])
+        		->field('C.cid, .C.version, C.course_name')
         		->find();
         	$homeworkfind[$i]['cid'] = $coursefind['cid'];
         	$homeworkfind[$i]['cversion'] = $coursefind['version'];

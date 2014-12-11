@@ -74,8 +74,8 @@ class MainNavigationController extends Controller {
 			$data['profession'] = I('post.profession');
 			$data['entry_year'] = I('post.year');
 
-			$result = $user->add($data);
-			if ($result){
+			if ($user->create()){
+				$result = $user->add($data);
 				//设置session的值
 				session('uid', $result);
 
