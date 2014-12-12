@@ -17,9 +17,10 @@ class HomeworkPageController extends Controller {
     		->field('hid, version, title, editor, update_time')
     		->select();
     	$homeworkindexfind = $homeworkindex->where('hid='.$hid)
-    		->field('like_number')
+    		->field('like_number, order')
     		->find();
     	$homeworkfind['like_number'] = $homeworkindexfind['like_number'];
+        $homeworkfind['order'] = $homeworkindexfind['order'];
 
     	$data['homework'] = $homeworkfind;
     	$data['historyversion'] = $homeworkfind2;

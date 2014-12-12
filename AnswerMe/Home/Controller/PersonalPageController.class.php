@@ -25,21 +25,76 @@ class PersonalPageController extends Controller {
         		->join('contain C on H.hid = C.hid')
         		->where("C.cid=".$takefind[$i]['cid']." AND H.order=".$takefind[$i]['HW_now'])
         		->field('C.hid, H.version')
-        		->select();
-        	$homeworkfind[$i] = $homework->where($homeworkindexfind)
-        		->field('hid, version, title, due_time, content')
         		->find();
-        	$coursefind = $courseindex->table('courseindex CI')
-        		->join('course C on CI.cid = C.cid AND CI.version = C.version')
-        		->where('C.cid='.$takefind[$i]['cid'])
-        		->field('C.cid, .C.version, C.course_name')
-        		->find();
-        	$homeworkfind[$i]['cid'] = $coursefind['cid'];
-        	$homeworkfind[$i]['cversion'] = $coursefind['version'];
-        	$homeworkfind[$i]['course_name'] = $coursefind['course_name'];
+            if ($homeworkindexfind) {
+                $homeworkfind[$i] = $homework->where($homeworkindexfind)
+                    ->field('hid, version, title, due_time, content')
+                    ->find();
+                $homeworkfind[$i]['order'] = $takefind[$i]['HW_now'];
+            } else {
+                $homeworkfind[$i]['hid'] = 0;
+            }
+            $coursefind = $courseindex->table('courseindex CI')
+                ->join('course C on CI.cid = C.cid AND CI.version = C.version')
+                ->where('C.cid='.$takefind[$i]['cid'])
+                ->field('C.cid, .C.version, C.course_name')
+                ->find();
+            $homeworkfind[$i]['cid'] = $coursefind['cid'];
+            $homeworkfind[$i]['cversion'] = $coursefind['version'];
+            $homeworkfind[$i]['course_name'] = $coursefind['course_name'];
         }
         
         $this->assign('homeworks', $homeworkfind);
         $this->display();
+    }
+
+    public function complete() {
+    	$cid = I('post.cid');
+
+    	//从session中取得uid
+        $uid = session('uid');
+
+        $take = M('take');
+        $homework = M('homework');
+        $homeworkindex = M('homeworkindex');
+        $takefind = $take->where('uid='.$uid.' AND cid='.$cid)
+        	->field('HW_now')
+        	->find();
+        $nextorder = $takefind['HW_now'] + 1;
+        $homeworkindexfind = $homeworkindex->where('order='.$nextorder)
+        	->find();
+        if ($homeworkindexfind) {
+        	//当前作业不是最后一次作业
+        	//修改take表中属性HW_now
+        	$data['HW_now'] = $nextorder;
+        	$take->where('uid='.$uid.' AND cid='.$cid)->save($data);
+
+        	//获取下一次作业
+        	$homeworkindexfind2 = $homeworkindex->table('homeworkindex H')
+        		->join('contain C on H.hid = C.hid')
+        		->where("C.cid=".$cid." AND H.order=".$nextorder)
+        		->field('C.hid, H.version')
+        		->find();
+        	$homeworkfind = $homework->where($homeworkindexfind2)
+        		->field('hid, version, title, due_time, content')
+        		->find();
+        	if ($homeworkfind) {
+        		$dataReturn['status'] = 1;
+        		$dataReturn['homework'] = $homeworkfind;
+        	} else {
+        		$dataReturn['status'] = 0;
+				$dataReturn['msg'] = "操作不成功";
+        	}
+        } else {
+        	//当前作业为最后一次作业
+        	//修改take表中属性HW_now
+        	$data['HW_now'] = $nextorder;
+        	$take->where('uid='.$uid.' AND cid='.$cid)->save($data);
+
+        	$dataReturn['status'] = 2;
+			$dataReturn['msg'] = "你已完成该课程所有作业";
+        }
+
+        $this->ajaxReturn($dataReturn, 'json');
     }
 }

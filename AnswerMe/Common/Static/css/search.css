@@ -1,4 +1,4 @@
-﻿
+
 
 /* 搜索框及按钮 */
 .span1 {
@@ -60,7 +60,7 @@
 	  width:1000px;
 	margin:0 auto;
 	border-top:1px solid #19B68A;
-	
+	display: none;
 }
 .buttons {
     width:200px;

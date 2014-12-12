@@ -30,7 +30,7 @@
       <div class="collapse navbar-collapse" id="navbar-collapse-01">
         <div class="loged hidden">
           <span class="fui-user"></span>
-          <a href="myhome.html" id="usersname">KenLee</a>
+          <a href="PersonalPage" id="usersname">KenLee</a>
           <span class="fui-heart"></span>
           <a href="/like.html" class="like-num">256</a>
           <div class="btn-group">
@@ -242,13 +242,13 @@
 				<div class="col-xs-6 homework">
 					<ul class="homework-list">
 						<volist name="homeworks" id="homework">
-							<li  class="homework-list-item" id="<{$homework.cid}>">
+							<li  class="homework-list-item" id="<{$homework.hid}>">
 								<div class="homework-content">
 									<div class="hw-name">
 										<h4 class="hw-course"><a href="__APP__/HomeworkPage/index/hid/<{$homework.hid}>/version/<{$homework.version}>"><{$homework.course_name}></a></h4>
 									</div>
 									<span class="hw-tag">第</span>
-									<span class="hw-tag hw-count"><{$homework.hid}></span>
+									<span class="hw-tag hw-count"><{$homework.order}></span>
 									<span class="hw-tag">次</span>
 									<span class="hw-tag">作</span>
 									<span class="hw-tag">业</span>
@@ -318,7 +318,7 @@
 					</ul>
 
 					<div class="tips">
-						<h4><img src="resource/mier.png">你真棒！没有要写的作业啦~</h4>
+						<h4>你真棒！没有要写的作业啦~</h4>
 					</div>
 
 					<div class="course-page">

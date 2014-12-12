@@ -29,14 +29,12 @@ class SearchPageController extends Controller {
     	for ($i=0; $i < sizeof($coursefind); $i++) {
             $con2['cid'] = $coursefind[$i]['cid'];
     		$courseindexfind = $courseindex->where($con2)
-    			->field('version, like_number, taken_number')
+    			->field('version')
     			->find();
 
             $con2['version'] = $courseindexfind['version'];
     		$coursefind2[$i] = $course->where($con2)
     			->find();
-    		$coursefind2[$i]['like_number'] = $courseindexfind['like_number'];
-    		$coursefind2[$i]['taken_number'] = $courseindexfind['taken_number'];
     	}
 
     	if (sizeof($coursefind2) == 0) {
@@ -63,7 +61,7 @@ class SearchPageController extends Controller {
     		->field('hid')
     		->select();
 
-    	$hwfind2= array();
+    	$coursefind2= array();
     	$hwindex = M('homeworkindex');
     	for ($i=0; $i < sizeof($hwfind); $i++) {
             $con2['hid'] = $hwfind[$i]['hid'];
@@ -72,9 +70,10 @@ class SearchPageController extends Controller {
     			->find();
 
             $con2['version'] = $hwindexfind['version'];
+            $con2['like_number'] = $hwindexfind['like_number'];
     		$hwfind2[$i] = $homework->where($con2)
     			->find();
-    		$hwfind2[$i]['like_number'] = $hwindexfind['like_number'];
+    		$hwfind2[$i]['like_number'] = $con2['like_number'];
     	}
 
     	if (sizeof($hwfind2) == 0) {
@@ -137,7 +136,6 @@ class SearchPageController extends Controller {
      */
     public function follow() {
     	//获取前端传来的信息
-    	$flag = I('post.flag');
         $cid = I('post.cid');
 
         //从session中取得uid
@@ -146,32 +144,17 @@ class SearchPageController extends Controller {
         //实例化Take模型类
         $take = M('take');
 
-        if ($flag == 1) {
-        	//关注
-        	$data['uid'] = $uid;
-	        $data['cid'] = $cid;
-	        $data['HW_now'] = 1;
+        $data['uid'] = $uid;
+        $data['cid'] = $cid;
+        $data['HW_now'] = 1;
 
-	        if (!$take->add($data)) {
-	            $dataReturn['status'] = 0;
-	            $dataReturn['msg'] = "创建数据库失败";
-	        } else {
-	        	$dataReturn['status'] = 1;
-	        }
-        } else if ($flag == 0) {
-        	//取消关注
-        	$takedelete = $take->where('cid='.$cid.' AND uid='.$uid)
-        		->delete();
-
-        	if ($takedelete) {
-        		$dataReturn['status'] = 1;
-        	} else {
-        		$dataReturn['status'] = 0;
-        		$dataReturn['msg'] = "数据库操作失败";
-        	}
-        	
+        if (!$take->add($data)) {
+            $dataReturn['status'] = 0;
+            $dataReturn['msg'] = "创建数据库失败";
+            $this->ajaxReturn($dataReturn, 'json');
         }
 
+        $dataReturn['status'] = 1;
         $this->ajaxReturn($dataReturn, 'json');
     }
 }

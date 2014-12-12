@@ -37,7 +37,7 @@ $(document).ready(function() {
 	});
 
 	/* load homework information */
-	var hw_info="<div class='tile hw-list hw-lists'><div class=title>第<span class=h-time></span>次作业</div><div><div class=hw-detail></div><div class=hw-answer></div></div><div class=readmore><a>ReadMore...>> </a></div></div>";
+	var hw_info="<div class='tile hw-list hw-lists'><div class=title>第<span class=h-time></span>次作业</div><div class=h-c><div class=hw-detail></div><div class=hw-answer></div></div><div class=readmore><a>ReadMore...>> </a></div></div>";
 
 	$.ajax({
 		type:"GET",
@@ -52,9 +52,9 @@ $(document).ready(function() {
 				hid += data[i].hid;
 				$("div.hw-lists").last().attr("id", hid);
 				var id = "#"+hid;
-				$(id).find("div.hw-answer").html(data[i].content);
+				$(id).find("div.hw-answer").after(data[i].content);
 				$(id).find("div.title").find("span.h-time").text(data[i].order);
-				var link = "http://localhost/answer_me/home.php/HomeworkPage/index/hid/";
+				var link = "HomeworkPage/index/hid/";
 				link += data[i].hid;
 				link += "/version/";
 				link += data[i].version;
@@ -216,26 +216,28 @@ $(document).ready(function() {
 				window.location.href = "http://localhost/answer_me/home.php/SearchPage/";
 				if(item == "course-tosearch") {
 					$.ajax({
-						type: "GET",
+						type: "POST",
 						url: "http://localhost/answer_me/home.php/SearchPage/searchcourse",
 						data: {keyword:pro},
 						dataType: "json",
 						success: function(list) { 
 							alert(list.courses[0].course_name);
+							window.location.href="SearchPage";
 						}
 					});
 				} else if (item == "problem-tosearch") {
 					$.ajax({
-						type: "GET",
+						type: "POST",
 						url: "http://localhost/answer_me/home.php/SearchPage/searchhw",
 						data: {keyword:pro},
 						dataType: "json",
 						success: function(list) {
 							alert(list.homework[0].title);
+							window.location.href="SearchPage";
 						}
 					});
 				}
 			}
 		}
-	})
+	});
 });

@@ -1,5 +1,13 @@
 $(document).ready(function() {
 	var good_item = 0;
+
+	$("ul.homework-list").children("#0").remove();
+	var divs = $("ul.homework-list").children("li.homework-list-item");
+	if (divs.length == 0) {
+		$("ul.homework-list").css("display", "none");
+		$("div.tips").css("display", "inherit");
+	}
+	
 	$("li.course-list-item").click(function() {
 		$("li.course-list-item").css("background-color", "#34495e");
 		$(this).css("background", "transparent");
@@ -66,6 +74,43 @@ $(document).ready(function() {
 			$("#good-img").css("color", "#16a085");	
 		} else if (good_item == 1) {
 			$("#good-img").css("color", "#dc143c");	
+		}
+	});
+
+	/* search a course or a homework */
+	$("div.todo-search").keydown(function(e) {
+		var e = e || event;
+		keycode = e.which || e.keyCode;
+		if (keycode == 13) {
+			var pro = $("input.course-search-field").val();
+			if(pro == "") {
+				alert("输入不能为空！");
+			} else {
+				var item = $("select.search-type").find("option:selected").attr("value");
+				if(item == "course-tosearch") {
+					$.ajax({
+						type: "POST",
+						url: "http://localhost/answer_me/home.php/SearchPage/searchcourse",
+						data: {keyword:pro},
+						dataType: "json",
+						success: function(list) { 
+							alert(list.courses[0].course_name);
+							window.location.href="SearchPage";
+						}
+					});
+				} else if (item == "problem-tosearch") {
+					$.ajax({
+						type: "POST",
+						url: "http://localhost/answer_me/home.php/SearchPage/searchhw",
+						data: {keyword:pro},
+						dataType: "json",
+						success: function(list) {
+							alert(list.homework[0].title);
+							window.location.href="SearchPage";
+						}
+					});
+				}
+			}
 		}
 	});
 });

@@ -30,7 +30,7 @@
 			<div class="collapse navbar-collapse" id="navbar-collapse-01">
 				<div class="loged hidden">
 					<span class="fui-user"></span>
-					<a href="myhome.html" id="usersname">KenLee</a>
+					<a href="PersonalPage" id="usersname">KenLee</a>
 					<span class="fui-heart"></span>
 					<a href="like.html" class="like-num">256</a>
 					<div class="btn-group">
@@ -205,24 +205,60 @@
 							<input class="course-search-field todo-search-field" type="search" value="" placeholder="Search" />
 						</div>
 						<ul>
-                            <li class="time-list-item" id = "course_edit">
+                            <li class="time-list-item">
                                 <div class="todo-content">
-                                    <h4 class="time-name todo-name" >课程编辑历史</h4>
+                                    <h4 id ="weekly" class="time-name todo-name">最近一周</h4>
                                 </div>
                             </li>
 							<li class="time-list-item">
-								<div class="todo-content" id = "hw_edit">
-									<h4 class="time-name todo-name" >作业编辑历史</h4>
+								<div class="todo-content">
+									<h4 id ="monthly" class="time-name todo-name">最近一月</h4>
 								</div>
 							</li>
+							<li class="time-list-item">
+								<div class="todo-content">
+									<h4 id ="halfyearly" class="time-name todo-name">最近半年</h4>
+								</div>
+							</li>
+							<li class="time-list-item">
+								<div class="todo-content">
+									<h4 id ="yearly" class="time-name todo-name">最近一年</h4>
+								</div>
+							</li>
+							<li class="time-list-item">
+								<div class="todo-content">
+									<h4 id ="allly" class="time-name todo-name">全部</h4>
+								</div>
+							</li>							
 						</ul>
 					</div>
 				</div>
 			</div>
             <!--右边 -->
             <div class="right">
-                <table class="recordss">
-                   
+                <table class="record">
+                    <caption style="font-size:25px;font-weight:1px">编辑历史-最近一周</caption>
+	                <tr class="record">
+	                    <th class="record-item">序号</th>
+	                	<th class="record-course-name">课程</th>
+                        <th class="record-course-hw">作业次数</th>
+                        <th class="record-lastedit">最后编辑时间</th>
+                        <th class="record-like">获赞数❤</th>
+	                </tr>
+	                <tr class="record">
+	                    <td  class="record-item">1</td>
+	                	<td class="record-course-name"><a href="classpage.html">算法分析与设计</a></td>
+	                	<td class="record-course-hw">第二次作业</td>
+	                	<td class="record-lastedit">2014-10-19/23:09</td>
+	                	<td class="record-like">19</td>
+	                </tr>
+	                <tr class="record">
+	                    <td  class="record-item">2</td>
+	                	<td class="record-course-name"><a href="">Web安全</a></td>
+	                	<td class="record-course-hw">第一次作业</td>
+	                	<td class="record-lastedit">2014-10-12/21:12</td>
+	                	<td class="record-like">25</td>
+	                </tr>
                 </table>
             </div>
 		</div>
@@ -235,7 +271,6 @@
 		<script src="__JS__/application.js"></script>
 		<script src="__JS__/jquery.cookie.js"></script>
 		<script src="__JS__/template.js"></script>
-		<script src="__JS__/userhistory.js"></script>
 		<!--添加你的js文件-->
 	</body>
 </html>

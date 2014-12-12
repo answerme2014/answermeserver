@@ -262,3 +262,12 @@ img.photo{
 	height: 28px;
 	padding:4px 10px 6px 10px;
 }
+
+.h-c div{
+	font-size: 15px;
+	font-family: "微软雅黑";
+}
+
+.title {
+	font-size: 17px;
+}

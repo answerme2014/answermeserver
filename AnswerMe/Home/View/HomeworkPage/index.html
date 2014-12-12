@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<!--题目-->
-		<title>AnswerMe-Template</title>
+		<title>AnswerMe-第<{$homework.order}>次作业</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Bootstrap CSS-->
 		<link href="__CSS__/bootstrap.min.css" rel="stylesheet">
@@ -31,7 +31,7 @@
 			<div class="collapse navbar-collapse" id="navbar-collapse-01">
 				<div class="loged hidden">
 					<span class="fui-user"></span>
-					<a href="myhome.html" id="usersname">KenLee</a>
+					<a href="../../../../../PersonalPage" id="usersname">KenLee</a>
 					<span class="fui-heart"></span>
 					<a href="like.html" class="like-num">256</a>
 					<div class="btn-group">
@@ -195,9 +195,9 @@
 			<!-- 把你的css添加到上面的css中，把你的js添加到下面的js中-->
 			<!-- 除了添加，不要改动一切其他东西-->
 						<div class = "middle">
-				<div class = "header">
+				<div class = "header" id="<{$homework.hid}>">
 					<div class = "zuoyecishu">
-					<h3>第一次作业</h3>
+					<h3>第&nbsp<{$homework.order}>&nbsp次作业</h3>
 				    </div>
 				    
 					<div class ="a">
@@ -224,9 +224,9 @@
    				 			<span class="caret"></span>
   						</button>
   						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-   							<li role="presentation">
+   							<li role="presentation" >
    								<volist name="historyversion" id="history">
-   									<a role="menuitem" tabindex="-1" href="#">
+   									<a role="menuitem" tabindex="-1" href="../version/<{$history.version}>" >
    										<span class="number">第<{$history.version}>个历史版本 </span>
    										<span class="date"><{$history.update_time}></span>
    									</a>
