@@ -37,7 +37,7 @@ $(document).ready(function() {
 	});
 
 	/* load homework information */
-	var hw_info="<div class='tile hw-list hw-lists'><div class=title></div><span>作业 : </span><div><div class=hw-detail></div><div class=hw-answer></div></div><div class=readmore><a>ReadMore...>> </a></div></div>";
+	var hw_info="<div class='tile hw-list hw-lists'><div class=title>第<span class=h-time></span>次作业</div><div><div class=hw-detail></div><div class=hw-answer></div></div><div class=readmore><a>ReadMore...>> </a></div></div>";
 
 	$.ajax({
 		type:"GET",
@@ -52,8 +52,8 @@ $(document).ready(function() {
 				hid += data[i].hid;
 				$("div.hw-lists").last().attr("id", hid);
 				var id = "#"+hid;
-				$(id).find("div.title").text(data[i].title);
 				$(id).find("div.hw-answer").html(data[i].content);
+				$(id).find("div.title").find("span.h-time").text(data[i].order);
 				var link = "http://localhost/answer_me/home.php/HomeworkPage/index/hid/";
 				link += data[i].hid;
 				link += "/version/";

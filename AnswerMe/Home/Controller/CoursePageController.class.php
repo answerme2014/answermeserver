@@ -48,8 +48,10 @@ class CoursePageController extends Controller {
         for($i=0;$i<count($hids);$i++){
             $homeworkIndex = M('homeworkindex');
             $version = $homeworkIndex->where('hid='.$hids[$i])->getField('version');
+            $order = $homeworkIndex->where('hid='.$hids[$i])->getField('order');
             $homework = M('homework')->where('hid='.$hids[$i].' AND version='.$version)->find();
             $data[$i]=$homework;
+            $data[$i]['order']=$order;
         }
         //dump($data);
         $this->ajaxReturn($data,'json');
