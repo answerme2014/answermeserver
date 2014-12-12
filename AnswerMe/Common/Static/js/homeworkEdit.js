@@ -1,4 +1,4 @@
-//编辑器js
+//--全局变量
 var ue = UE.getEditor('editor',{
     toolbars: [
             ['source', '|', 'undo', 'redo', '|',
@@ -12,65 +12,113 @@ var ue = UE.getEditor('editor',{
             'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol',
             'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', '|',
             'preview', 'searchreplace','spechars', 'kityformula']
-    ]});
-
+    ],
+    enableAutoSave:false,
+    autoSyncData:false
+});
 var form = document.getElementById('form');
-
 var kfSubmit = function(){
     ue.getKfContent(function(content){
         form.submit();
     })
 }
-function edit(t){
-        //alert("click");
-        var liList=$("ul.allHomeworks").children();
-        //alert(liList.length);
-        liList.removeClass("editing");
-        thisLi=$(t).parent();
-        thisLi.addClass("editing");
-        //some Ajax to sever
-}
-function addone(t){
-    var num=parseInt($(t).parent().find("span.num").text());
-    //alert(num);
-    $(t).parent().before('<li class><span class="fui-triangle-right-large"></span><span class="homeworkName">第 <span class="num">'+String(num)+'</span>次作业</span> <span class="fui-plus add"  onclick="addone(this)"></span><span class="fui-new edit" onclick="edit(this)"></span></li>');
-    var now=$(t).parent();
-    while(1){
-        var onenum=parseInt(now.find("span.num").text());
-        //alert(onenum);
-        now.find("span.num").text(String(onenum+1));
-        now=now.next();
-        if(now.hasClass("last"))
-            break;
-    }
-}
 var content;
-//动画js
-$(document).ready(function(){
-    $(".addnew").click(function(){
-        var lastnum=$(this).parent().prev().find("span.num").text();
-        var num= parseInt(lastnum);
-        var last=$(this).parent().prev();
-        last.after('<li class><span class="fui-triangle-right-large"></span><span class="homeworkName">第 <span class="num">'+String(num+1)+'</span>次作业</span> <span class="fui-plus add"  onclick="addone(this)"></span><span class="fui-new edit" onclick="edit(this)"></span></li>');
-        edit();
-    });
+//--./全局变量
+
+function edit(t){
+    var targetHid=$(t).parent().find('.hid').text();
+    var targetVersion=$(t).parent().find('.version').text();
+    $(t).parent().parent().find('li').removeClass('editing');
+    $(t).parent().addClass('editing');
+    $('.className .hid').text(targetHid);
+    $('.className .version').text(targetVersion);
     $.ajax({
         type: 'POST',
         url: '/answer_me/home.php/EditPage/getContent',
-        data: {'hid':'1','version':'1'},
+        data: {'hid':targetHid,'version':targetVersion},
         dataType: "json",
         success: function(data) {
-            console.log("Reply:");
-            console.log(data);
+            //console.log("Reply:");
+            //console.log(data);
             content=data['content'];
+            ue.setContent(content);
         },
         error: function(data) {
             alert("error");
             console.log(data);
         }
     });
-    ue.addListener("ready", function () {
-        // editor准备好之后才可以使用
-        ue.setContent(content);
+}
+function save(){
+    var hid=$('.className .hid').text();
+    var version=$('.className .version').text();
+    var contentData=ue.getContent();
+    $.ajax({
+        type: 'POST',
+        url: '/answer_me/home.php/EditPage/setContent',
+        data: {'hid':hid,'version':version,'content':contentData},
+        dataType: "json",
+        success: function(data) {
+            //console.log("Reply:");
+            //console.log(data);
+            if(data['status']==1){
+                alert("提交成功");
+                location.href='/answer_me/home.php/EditPage/index/hid/'+data['hid']+'/version/'+data['version'];
+            }      
+            else
+                alert("提交失败 "+data['status']);
+        },
+        error: function(data) {
+            alert("error");
+            console.log(data);
+        }
+    });
+    location.href
+}
+function createNew(){
+    //alert($('#cid').text());
+    $.ajax({
+        type: 'POST',
+        url: '/answer_me/home.php/EditPage/createNew',
+        data: {'cid':$('#cid').text()},
+        dataType: "json",
+        success: function(data) {
+            //console.log("Reply:");
+            //console.log(data);
+            if(data['status']==1){
+                alert("提交成功");
+                location.href='/answer_me/home.php/EditPage/index/hid/'+data['hid']+'/version/'+data['version'];
+            }      
+            else
+                alert("提交失败 "+data['status']);
+        },
+        error: function(data) {
+            alert("error");
+            console.log(data);
+        }
+    });
+}
+$(document).ready(function(){
+    //请求编辑器数据
+    var hid=$('.className .hid').text();
+    var version=$('.className .version').text();
+    ue.addListener("ready", function () {   
+        $.ajax({
+            type: 'POST',
+            url: '/answer_me/home.php/EditPage/getContent',
+            data: {'hid':hid,'version':version},
+            dataType: "json",
+            success: function(data) {
+                //console.log("Reply:");
+                //console.log(data);
+                content=data['content'];
+                // editor准备好之后写入数据
+                ue.setContent(content);
+            },
+            error: function(data) {
+                alert("error");
+                console.log(data);
+            }
+        });          
     });
 });

@@ -122,3 +122,13 @@ li .fui-triangle-right-large{
 	color: #1ABC9C!important;
 }
 /*左边导航样式结束*/
+
+.hid{
+	display: none;
+}
+.version{
+	display: none;
+}
+#cid{
+	display: none;
+}

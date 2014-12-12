@@ -197,39 +197,17 @@
 					</script>
 				</form>
 			</div>
+			
 			<div class="catalog">
 				<div class="tile">
 					<div class="homeworkContent">
 						<div class="className">
-						  	人工智能
+						  	<?php  echo($data['courseName']); echo '<span id="cid">',$data['cid'],'</span>'; echo '<span class="hid">',$data['hid'],'</span>'; echo '<span class="version">',$data['version'],'</span>'; ?>
 						</div>
 						<ul class="allHomeworks">
-							<li>
-								<span class="fui-triangle-right-large"></span>
-								<span class="homeworkName">第 <span class="num">1</span>次作业</span>
-								<span class="fui-plus add" onclick="addone(this)"></span>
-								<span class="fui-new edit" onclick="edit(this)"></span>
-						 	</li>
-							<li class="editing">
-								<span class="fui-triangle-right-large"></span>
-								<span class="homeworkName">第 <span class="num">2</span> 次作业</span>
-								<span class="fui-plus add" onclick="addone(this)"></span>
-								<span class="fui-new edit" onclick="edit(this)"></span>
-							</li>
-							<li>
-								<span class="fui-triangle-right-large"></span>
-								<span class="homeworkName">第 <span class="num">3</span> 次作业</span>
-								<span class="fui-plus add" onclick="addone(this)"></span>
-								<span class="fui-new edit" onclick="edit(this)"></span>
-							</li>
-							<li>
-								<span class="fui-triangle-right-large"></span>
-								<span class="homeworkName">第 <span class="num">4</span> 次作业</span>
-								<span class="fui-plus add" onclick="addone(this)"></span>
-								<span class="fui-new edit" onclick="edit(this)"></span>
-							</li>
+							<?php  $hws = $data['homeworks']; for($i=0;$i<count($hws);$i++){ if($data['hid']==$hws[$i]['hid']) echo '<li class="editing">'; else echo '<li>'; echo '<span class="fui-triangle-right-large"></span>'; echo '<span class="homeworkName">',$hws[$i]['title'],'</span>'; echo '<span class="fui-new edit" onclick="edit(this)"></span>'; echo '<span class="hid">',$hws[$i]['hid'],'</span>'; echo '<span class="version">',$hws[$i]['version'],'</span>'; echo '</li>'; } ?>
 							<li class="last">
-								<div class="addnew">
+								<div class="addnew" onclick="createNew(this)">
 									<span class="fui-plus"></span>
 									增加新作业
 								</div>
@@ -237,7 +215,7 @@
 						</ul>
 					</div>
 				 </div>
-				<button  class="btn btn-primary btn-wide submit" onclick="kfSubmit()">提交</button>
+				<button  class="btn btn-primary btn-wide submit" onclick="save()">提交</button>
 				<button  class="btn btn-default btn-wide cancel">放弃</button>
 			</div>
 		</div>
