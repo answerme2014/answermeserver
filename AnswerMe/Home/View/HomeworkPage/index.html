@@ -202,100 +202,37 @@
 				    
 					<div class ="a">
 					<div class="heart">
-					<span class="fui-heart" >
-					<a class="like-num" href="javascript:;">20</a>
-					</span>
+					<span class="fui-heart" >&nbsp<{$homework.like_number}></span>
 				    </div>
 				  
 
 					<div class = "bianji">
-					<button type="button" class="btn btn-default">编辑</button>
-				    <a href=""></a>		
+						<button type="button" class="btn btn-default">编辑</button>
+				    	<a href=""></a>		
 				    </div>
 
 					<div class = "jubao">
-					<button type="button" class="btn btn-default">举报</button>
-				    <a href=""></a>		
+						<button type="button" class="btn btn-default">举报</button>
+				    	<a href=""></a>		
 				    </div>
 					
 
 					<div class="lishibanben dropdown">
-  					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+  						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
     				历史版本
-   				 	<span class="caret"></span>
-  					</button>
-  					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-   					<li role="presentation">
-   						<a role="menuitem" tabindex="-1" href="#">
-   							<span class="number">第一个历史版本 </span>
-   							<span class="date">2014-11-14</span>
-   						</a>
-   					</li>
+   				 			<span class="caret"></span>
+  						</button>
+  						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+   							<li role="presentation">
+   								<volist name="historyversion" id="history">
+   									<a role="menuitem" tabindex="-1" href="#">
+   										<span class="number">第<{$history.version}>个历史版本 </span>
+   										<span class="date"><{$history.update_time}></span>
+   									</a>
+   								</volist>
+   							</li>
 
-   					<li role="presentation">
-   						<a role="menuitem" tabindex="-1" href="#">
-   							<span class="number">第二个历史版本 </span>
-   							<span class="date">2014-11-14</span>
-   						</a>
-   					</li>
-   					
-   					<li role="presentation">
-   						<a role="menuitem" tabindex="-1" href="#">
-   							<span class="number">第三个历史版本 </span>
-   							<span class="date">2014-11-14</span>
-   						</a>
-   					</li>
-   					
-   					<li role="presentation">
-   						<a role="menuitem" tabindex="-1" href="#">
-   							<span class="number">第四个历史版本 </span>
-   							<span class="date">2014-11-14</span>
-   						</a>
-   					</li>
-   					
-   					<li role="presentation">
-   						<a role="menuitem" tabindex="-1" href="#">
-   							<span class="number">第五个历史版本 </span>
-   							<span class="date">2014-11-14</span>
-   						</a>
-   					</li>
-
-   					<li role="presentation">
-   						<a role="menuitem" tabindex="-1" href="#">
-   							<span class="number">第六个历史版本 </span>
-   							<span class="date">2014-11-14</span>
-   						</a>
-   					</li>
-
-   					<li role="presentation">
-   						<a role="menuitem" tabindex="-1" href="#">
-   							<span class="number">第七个历史版本 </span>
-   							<span class="date">2014-11-14</span>
-   						</a>
-   					</li>
-   					
-   					<li role="presentation">
-   						<a role="menuitem" tabindex="-1" href="#">
-   							<span class="number">第八个历史版本 </span>
-   							<span class="date">2014-11-14</span>
-   						</a>
-   					</li>
-   					
-   					<li role="presentation">
-   						<a role="menuitem" tabindex="-1" href="#">
-   							<span class="number">第九个历史版本 </span>
-   							<span class="date">2014-11-14</span>
-   						</a>
-   					</li>
-   					
-   					<li role="presentation">
-   						<a role="menuitem" tabindex="-1" href="#">
-   							<span class="number">第十个历史版本 </span>
-   							<span class="date">2014-11-14</span>
-   						</a>
-   					</li>
-
-    				</ul>
+    					</ul>
 					</div>
 					</div>
 				
@@ -303,29 +240,7 @@
 
 			<div class = "zuoyeneirong">
 			<div class = "t1">
-				<p>1.What the five layers in the Internet protocol stack? What are the principal responsibilities of each of these layers?</p>
-				<p>应用层： 应用层是网络应用层序机器应用层协议存留的地方。</p>	
-				<p>运输层： 运输层提供了在应用程序断点之间传送应用层报文的服务。</p>
-				<p>网络层： 因特网的网络层负责将称为数据报的网络层分组从一台主机移动到另外一台主机。</p>
-				<p>链路层： 链路层将整个帧从一个网络元素一定到临近的网络元素。</p>
-				<p>物理层： 物理层的任务是将该帧中的一个一个比特从一个节点移动到下一个节点。</p>
-				<p>2.What is an application-layer message? A transport-layer segment? A network-layer datagram? A link-layer frame?</p>
-
-				<p>Message:  位于应用层的信息分组称为报文</p>
-				<p>Segment:  将运输层分组称为报文段</p>
-				<p>Datagram: 被称为数据报的网络层</p>
-				<p>Frame:    链路层分组称为帧</p>
-
-				<p>3.What is a client program? What is a server program? Does a server program request and receive services from a client program?</p>
-				<p>Client program:  运行在端系统上的程序，发送请求。</p>
-				<p>Server program: 运行在端系统上的程序，接受服务。</p>	
-				<p>客户程序不能从服务程序接收消息。</p>
-
-				<p>4.What is a client program? What is a server program? Does a server program request and receive services from a client program?</p>
-				<p>Client program:  运行在端系统上的程序，发送请求。</p>
-				<p>Server program: 运行在端系统上的程序，接受服务。</p>	
-				<p>客户程序不能从服务程序接收消息。</p>
-				</p>
+				<{$homework.content}>
 			</div>
 
 

@@ -24,6 +24,15 @@ $(document).ready(function() {
 			$("img.photo").attr("src", src_addr);
 			$("#care").text(data.taken_number);
 			$("#good").text(data.like_number);
+			if (data.is_follow == null) {
+				care_item = -1;
+			} else if (data.is_follow == 0) {
+				care_item = 0;
+				$("#care-img").css("color", "#16a085");
+			} else if (data.is_follow == 1) {
+				care_item = 1;
+				$("#care-img").css("color", "#dc143c");
+			}
 		}
 	});
 
@@ -31,7 +40,7 @@ $(document).ready(function() {
 	var hw_info="<div class='tile hw-list hw-lists'><div class=title></div><span>作业 : </span><div><div class=hw-detail></div><div class=hw-answer></div></div><div class=readmore><a>ReadMore...>> </a></div></div>";
 
 	$.ajax({
-		type:"POST",
+		type:"GET",
 		url:"http://localhost/answer_me/home.php/coursePage/getHomeworkData",
 		data: {"cid":r[2]},
 		dataType:"json",
@@ -44,7 +53,12 @@ $(document).ready(function() {
 				$("div.hw-lists").last().attr("id", hid);
 				var id = "#"+hid;
 				$(id).find("div.title").text(data[i].title);
-				$(id).find("div.hw-detail").html(data[i].content);
+				$(id).find("div.hw-answer").html(data[i].content);
+				var link = "http://localhost/answer_me/home.php/HomeworkPage/index/hid/";
+				link += data[i].hid;
+				link += "/version/";
+				link += data[i].version;
+				$(id).find("a").attr("href", link);
 			}
 		}
 	});
@@ -102,25 +116,29 @@ $(document).ready(function() {
 			care_item = 0;		
 		}
 
-		$.ajax({
-			type: "POST",
-			url: "http://localhost/answer_me/home.php/coursePage/followCourse",
-			data: {"cid":r[2], "follow":care_item},
-			dataType: "json",
-			success: function(data) {
-				if (data.status == 1) {
-					var sum = parseInt($("#care").text());
-					if (care_item == 1) {
-						sum += 1;
-					} else if (care_item == 0) {
-						sum -= 1;
+		if (care_item == -1) {
+			alert("操作失败！");
+		} else {
+			$.ajax({
+				type: "POST",
+				url: "http://localhost/answer_me/home.php/coursePage/followCourse",
+				data: {"cid":r[2], "follow":care_item},
+				dataType: "json",
+				success: function(data) {
+					if (data.status == 1) {
+						var sum = parseInt($("#care").text());
+						if (care_item == 1) {
+							sum += 1;
+						} else if (care_item == 0) {
+							sum -= 1;
+						}
+						$("#care").text(sum);
+					} else if (data.status == 0) {
+						alert("操作失败！");
 					}
-					$("#care").text(sum);
-				} else if (data.status == 0) {
-					alert("操作失败！");
 				}
-			}
-		});
+			});
+		}
 	});
 
 	$("#care-img").mouseover(function() {
@@ -195,48 +213,29 @@ $(document).ready(function() {
 				alert("输入不能为空！");
 			} else {
 				var item = $("select.search-type").find("option:selected").attr("value");
+				window.location.href = "http://localhost/answer_me/home.php/SearchPage/";
 				if(item == "course-tosearch") {
 					$.ajax({
 						type: "GET",
-						url: "test.json",
+						url: "http://localhost/answer_me/home.php/SearchPage/searchcourse",
 						data: {keyword:pro},
 						dataType: "json",
-						success: function() {
-
+						success: function(list) { 
+							alert(list.courses[0].course_name);
 						}
 					});
 				} else if (item == "problem-tosearch") {
 					$.ajax({
 						type: "GET",
-						url: "test.json",
+						url: "http://localhost/answer_me/home.php/SearchPage/searchhw",
 						data: {keyword:pro},
 						dataType: "json",
-						success: function() {
-							
+						success: function(list) {
+							alert(list.homework[0].title);
 						}
 					});
 				}
 			}
 		}
 	})
-
-	/* read more about homework */
-	$("div.readmore").click(function() {
-		var id = $(this).parent.attr("id");
-		var i = 3;
-		var str = "";
-		for (i = 3; i < id.length; i++) {
-			str += id[i];
-		}
-		var hid = str.parseInt();
-		$.ajax({
-			type: "GET",
-			url: "",
-			data: {hid:hid},
-			dataType: "json",
-			success: function() {
-				
-			}
-		});
-	});
 });

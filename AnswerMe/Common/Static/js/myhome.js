@@ -10,7 +10,23 @@ $(document).ready(function() {
 	});
 
 	$("span.finish-bt").click(function() {
-		$(this).parent().parent().remove();
+		var cid=$(this).parent().parent().attr("id");
+		$.ajax({
+			type:"POST",
+			url:"http://localhost/answer_me/home.php/PersonalPage/complete",
+			data:{'cid':cid},
+			dataType:"json",
+			success: function(dataReturn) {
+				if(dataReturn.status == 0) {
+					alert("操作不成功！");
+				} else if (dataReturn.status == 1) {
+					$(this).parent().parent().remove();
+				} else if (dataReturn.status == 2) {
+					alert(dataReturn.msg);
+				}
+			}
+		});
+		
 	});
 
 	$("#good-img").click(function() {

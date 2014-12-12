@@ -19,174 +19,175 @@
 	</head>
 	<body>	
 		<!-- 导航栏 -->
-		<nav class="navbar navbar-inverse" role="navigation">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">
-					<img src="__RESOURCE__/logo-green.jpg">
-					<span>Answer Me</span>
-				</a>
-			</div>
-			<!--导航栏右侧状态(未登录/登陆后)-->
-			<div class="collapse navbar-collapse" id="navbar-collapse-01">
-				<div class="loged hidden">
-					<span class="fui-user"></span>
-					<a href="myhome.html" id="usersname">KenLee</a>
-					<span class="fui-heart"></span>
-					<a href="like.html" class="like-num">256</a>
-					<div class="btn-group">
-					  <button id="chooseBtn" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-					   more <span class="caret"></span>
-					  </button>
-					  <ul id="dropdownMenu" class="dropdown-menu" role="menu">
-					    <li><a href="#">编辑历史</a></li>
-					    <li><a href="#">设置</a></li>
-					    <li class="divider"></li>
-					    <li><a id="logout_">退出</a></li>
-					  </ul>
-					</div>
-				</div>
-				<div class="unloged">
-					<div id="btnNav" class="nav navbar-nav navbar-right btn-group">
-						<button id="btnRegister" class="btn btn-sm navbar-btn" type="button" data-toggle="modal" data-target="#modalLogin">登录</button>
-						<button id="btnLogin" class="btn btn-sm navbar-btn" type="button" data-toggle="modal" data-target="#modalRegister">注册</button>
-					</div>
-				</div>
-			</div>
-		</nav>
-		<!-- /.导航栏 -->
-		<!-- 模态框 -->
-		<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-				<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">
-					<span aria-hidden="true">&times;</span>
-					<span class="sr-only">Close</span>
-				</button>
-				<h4 class="modal-title" id="myModalLabel">登录</h4>
-			</div>
-			<div class="modal-body">
-						<form class="form-horizontal" role="form">
-							<div class="form-group">
-								<label for="inputUsername" id="labelUsername" class="col-sm-2 control-label">账号</label>
-								<div class="col-sm-10">
-									<input type="username" class="form-control" id="inputUsername" placeholder="输入账号">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputPassword" id="labelPassword" class="col-sm-2 control-label">密码</label>
-								<div class="col-sm-10">
-									<input type="password" class="form-control" id="inputPassword" placeholder="输入密码">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-offset-2 col-sm-10">
-									<div class="checkbox">
-										<label>
-											<input type="checkbox"> 记住我
-										</label>
-										<label id="freeLog">
-											<input type="checkbox"> 自动登录
-										</label>
-										<label id="forgetPassword">
-											<input type="checkbox"> 忘记密码
-										</label>
-									</div>
-								</div>
-							</div>
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-block" data-dismiss="modal" id="login_">登录</button>
-					</div>
-				</div>
-			</div>
-		</div>
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="home.html">
+          <img src="__RESOURCE__/logo-green.jpg">
+          <span>Answer Me</span>
+        </a>
+      </div>
+      <!--导航栏右侧状态(未登录/登陆后)-->
+      <div class="collapse navbar-collapse" id="navbar-collapse-01">
+        <div class="loged hidden">
+          <span class="fui-user"></span>
+          <a href="myhome.html" id="usersname">KenLee</a>
+          <span class="fui-heart"></span>
+          <a href="/like.html" class="like-num">256</a>
+          <div class="btn-group">
+            <button id="chooseBtn" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+             more <span class="caret"></span>
+            </button>
+            <ul id="dropdownMenu" class="dropdown-menu" role="menu">
+              <li><a href="#">编辑历史</a></li>
+              <li><a href="#">设置</a></li>
+              <li class="divider"></li>
+              <li><a id="logout_">退出</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="unloged">
+          <div id="btnNav" class="nav navbar-nav navbar-right btn-group">
+            <button id="btnRegister" class="btn btn-sm navbar-btn" type="button" data-toggle="modal" data-target="#modalLogin">登录</button>
+            <button id="btnLogin" class="btn btn-sm navbar-btn" type="button" data-toggle="modal" data-target="#modalRegister">注册</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- /.导航栏 -->
 
-		<div class="modal fade" id="modalRegister" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-						<h4 class="modal-title" id="myModalLabel">注册</h4>
-					</div>
-					<div class="modal-body">
-						<form class="form-horizontal" role="form">
-							<div class="form-group">
-								<label for="inputUsername1" class="col-sm-2 control-label">用户名</label>
-								<div class="col-sm-10">
-									<input type="email" class="form-control" id="inputUsername1">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputPassword1" class="col-sm-2 control-label">密码</label>
-								<div class="col-sm-10">
-									<input type="password" class="form-control" id="inputPassword1">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputRepeatpassword" class="col-sm-2 control-label">重复密码</label>
-								<div class="col-sm-10">
-									<input type="password" class="form-control" id="inputRepeatpassword">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputEmail" class="col-sm-2 control-label">邮箱</label>
-								<div class="col-sm-10">
-									<input type="email" class="form-control" id="inputEmail">
-								</div>
-							</div>							
-							<div class="form-group">
-								<label for="inputSchool" class="col-sm-2 control-label">学校</label>
-								<select class="form-control" id="selectSchool">
-									<option>选择你的学校</option>
-									<option>中山大学</option>
-									<option>清华大学</option>
-									<option>北京大学</option>
-									<option>华南理工大学</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="inputCollege" class="col-sm-2 control-label">学院</label>
-								<select class="form-control" id="selectCollege">
-									<option>选择你的学院</option>
-									<option>软件学院</option>
-									<option>岭南学院</option>
-									<option>医学院</option>
-									<option>社会教育学院</option>
-									<option>信息科学与技术学院</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="inputMajor" class="col-sm-2 control-label">专业</label>
-								<select class="form-control" id="selectMajor">
-									<option>选择你的专业</option>
-									<option>数字媒体</option>
-									<option>电子政务</option>
-									<option>嵌入式软件</option>
-									<option>通用软件</option>
-									<option>计算机应用</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="inputYear" class="col-sm-2 control-label">入学年份</label>
-								<select class="form-control" id="selectYear">
-									<option>选择你的入学年份</option>
-									<option>2014</option>
-									<option>2013</option>
-									<option>2012</option>
-									<option>2011</option>
-									<option>2010</option>
-								</select>
-							</div>
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-block" id="register_">确认注册</button>
-					</div>
-				</div>
-			</div>
-		</div>
+    <!-- 模态框 -->
+    <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">登录</h4>
+      </div>
+      <div class="modal-body">
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <label for="inputUsername" id="labelUsername" class="col-sm-2 control-label">账号</label>
+                <div class="col-sm-10">
+                  <input type="username" class="form-control" id="inputUsername" placeholder="输入账号">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword" id="labelPassword" class="col-sm-2 control-label">密码</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="inputPassword" placeholder="输入密码">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox"> 记住我
+                    </label>
+                    <label id="freeLog">
+                      <input type="checkbox"> 自动登录
+                    </label>
+                    <label id="forgetPassword">
+                      <input type="checkbox"> 忘记密码
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-block" data-dismiss="modal" id="login_">登录</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalRegister" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">注册</h4>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <label for="inputUsername1" class="col-sm-2 control-label">用户名</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="inputUsername1">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword1" class="col-sm-2 control-label">密码</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="inputPassword1">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputRepeatpassword" class="col-sm-2 control-label">重复密码</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="inputRepeatpassword">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputEmail" class="col-sm-2 control-label">邮箱</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="inputEmail">
+                </div>
+              </div>              
+              <div class="form-group">
+                <label for="inputSchool" class="col-sm-2 control-label">学校</label>
+                <select class="form-control" id="selectSchool">
+                  <option>选择你的学校</option>
+                  <option>中山大学</option>
+                  <option>清华大学</option>
+                  <option>北京大学</option>
+                  <option>华南理工大学</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="inputCollege" class="col-sm-2 control-label">学院</label>
+                <select class="form-control" id="selectCollege">
+                  <option>选择你的学院</option>
+                  <option>软件学院</option>
+                  <option>岭南学院</option>
+                  <option>医学院</option>
+                  <option>社会教育学院</option>
+                  <option>信息科学与技术学院</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="inputMajor" class="col-sm-2 control-label">专业</label>
+                <select class="form-control" id="selectMajor">
+                  <option>选择你的专业</option>
+                  <option>数字媒体</option>
+                  <option>电子政务</option>
+                  <option>嵌入式软件</option>
+                  <option>通用软件</option>
+                  <option>计算机应用</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="inputYear" class="col-sm-2 control-label">入学年份</label>
+                <select class="form-control" id="selectYear">
+                  <option>选择你的入学年份</option>
+                  <option>2014</option>
+                  <option>2013</option>
+                  <option>2012</option>
+                  <option>2011</option>
+                  <option>2010</option>
+                </select>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-block" id="register_">确认注册</button>
+          </div>
+        </div>
+      </div>
+    </div>
 		<!-- /.模态框 -->
 		<!-- 内容 -->
 		<div id="content" class="container">
@@ -204,8 +205,15 @@
 							</select>
 							<input class="course-search-field todo-search-field" type="search" value="" placeholder="Search" />
 						</div>
-						<ul>
-							<li class="course-list-item">
+						<ul class="course-lists">
+							<volist name="homeworks" id="homework">
+								<li class="course-list-item" id="<{$homework.cid}>">
+									<div class="course-content todo-content">
+										<h4 class="course-name todo-name"><{$homework.course_name}></h4>
+									</div>
+								</li>
+							</volist>
+							<!--<li class="course-list-item">
 								<div class="course-content todo-content">
 									<h4 class="course-name todo-name">Web安全</h4>
 								</div>
@@ -224,7 +232,7 @@
 								<div class="course-content todo-content">
 									<h4 class="course-name todo-name">计算机网络</h4>
 								</div>
-							</li>
+							</li>-->
 						</ul>
 					</div>
 				</div>
@@ -233,27 +241,27 @@
 			<div class="right">
 				<div class="col-xs-6 homework">
 					<ul class="homework-list">
-						<li class="homework-list-item">
-							<div class="homework-content">
-								<div class="hw-name">
-									<h4 class="hw-course"><a href="homework.html">Web安全</a></h4>
+						<volist name="homeworks" id="homework">
+							<li  class="homework-list-item" id="<{$homework.cid}>">
+								<div class="homework-content">
+									<div class="hw-name">
+										<h4 class="hw-course"><a href="__APP__/HomeworkPage/index/hid/<{$homework.hid}>/version/<{$homework.version}>"><{$homework.course_name}></a></h4>
+									</div>
+									<span class="hw-tag">第</span>
+									<span class="hw-tag hw-count"><{$homework.hid}></span>
+									<span class="hw-tag">次</span>
+									<span class="hw-tag">作</span>
+									<span class="hw-tag">业</span>
+									<div class="homework-contents"><{$homework.content}></div>
+									<div class="hw-ddl">截止日期：</div>
+									<span class="hw-ddl-date"><{$homework.due_time}></span>
+									<span class="finish-bt">
+										<button class="btn btn-primary">完成</button>
+									</span>
 								</div>
-								<span class="hw-tag">第</span>
-								<span class="hw-tag hw-count">1</span>
-								<span class="hw-tag">次</span>
-								<span class="hw-tag">作</span>
-								<span class="hw-tag">业</span>
-								<div class="homework-contents">
-									MD5是计算机广泛使用的散列算法之一，用于确保信息传输的完整性和一致性。一段不定长度的信息经过MD5程序后，会生成四个32位数据，也就是128位的长度。介绍一下MD5的算法以及在密码保护上的应用。
-								</div>
-								<div class="hw-ddl">截止日期：</div>
-								<span class="hw-ddl-date">2014-10-05 23:59</span>
-								<span class="finish-bt">
-									<button class="btn btn-primary">完成</button>
-								</span>
-							</div>
-						</li>
-						<li class="homework-list-item">
+							</li>
+						</volist>
+						<!--<li class="homework-list-item">
 							<div class="homework-content">
 								<div class="hw-name">
 									<h4 class="hw-course"><a href="homework.html">计算机网络</a></h4>
@@ -306,28 +314,31 @@
 									<button class="btn btn-primary">完成</button>
 								</span>
 							</div>
-						</li>
+						</li>-->
 					</ul>
 
 					<div class="tips">
-						<h4><img src="__RESOURCE__/mier.png">你真棒！没有要写的作业啦~</h4>
+						<h4><img src="resource/mier.png">你真棒！没有要写的作业啦~</h4>
 					</div>
 
 					<div class="course-page">
 						<div class="info-bar">
 							<div class="course-info-bar">
 								<div class="photo">
-									<img class="photo"src="__RESOURCE__/sd.jpg" alt="bookpic">
+									<img class="photo"src="resource/sd.jpg" alt="bookpic">
 								</div>
 								<div class="info">
-									<span class="class-name">算法分析与设计</span>
+									<span class="class-name"></span>
 									<a span class="fui-new edit" href="#"></a>
 									<br>
-									<span class="else">任课教师：郭嵩山</span>
+									<span class="else">任课教师：</span>
+									<span class="else" id="course-teacher"></span>
 									<br>
-									<span class="else">上课地点：公共教学楼C103</span>
+									<span class="else">上课地点：</span>
+									<span class="else" id="course-place"></span>
 									<br>
-									<span class="else">上课时间：星期二第三节至第五节</span>
+									<span class="else">上课时间：</span>
+									<span class="else" id="course-time"></span>
 									<br>
 									<div class="dropdown" id="download">
 										<button class="btn btn-default dropdown-toggle" type="button" id="download" data-toggle="dropdown">
@@ -345,39 +356,13 @@
 								</div>
 								<div class="takelike">
 									<span class="fui-heart add" id="good-img"></span>
-									<span class="else else-num" id="good">68</span>
+									<span class="else else-num" id="good"></span>
 								</div>
 							</div>
 
 							<div class="h-list-info">
 								<div class="hw-list-info">
-									<div class="tile hw-list">
-										<div class="title">第一次作业</div>
-										<span>作业 : </span>
-										<div>
-			  								<div class="hw-detail">1.《算法导论》求递归时间复杂度“主方法”的证明</div>
-			  								<div class="hw-answer">解:我们先假设一个结论T(n) = O(lg(n - b))，并且假设对T(n / 2上取整)成立（这就是数学归纳法了），那么把T(n / 2上取整)用假设的结论进行代换，我们有T(n) <= lg((n - b)) / 2上取整)
-
-											<= lg((n - b) / 2 + 1) + 1 = lg(n - b + 2),对于任意的b >= 2...</div>
-										</div>
-										<div class="readmore">
-			 								<a href="...">ReadMore...>> </a>
-										</div>
-	   								</div>
-	    							<div class="tile hw-list">
-										<div class="title">第二次作业</div>
-										<span>作业 : </span>
-										<div>
-			    							<div class="hw-detail">1.《算法导论》求递归时间复杂度“主方法”的证明</div>
-			    							<div class="hw-answer">解:我们先假设一个结论T(n) = O(lg(n - b))，并且假设对T(n / 2上取整)成立（这就是数学归纳法了），那么把T(n / 2上取整)用假设的结论进行代换，我们有T(n) <= lg((n - b)) / 2上取整)
-
-											<= lg((n - b) / 2 + 1) + 1 = lg(n - b + 2),对于任意的b >= 2...</div>
-										</div>
-										<div class="readmore">
-			  								<a href="...">ReadMore...>> </a>
-										</div>
-	    							</div>
-	    							<div class="tile hw-list">
+	    							<div class="tile hw-list add-homework">
 										<span class="else"><a class="book" href="...">添加新的作业</a></span>
 	    							</div>
 								</div>
@@ -388,14 +373,13 @@
 			</div>
 		</div>
 		<!-- jQuery 的js -->
-		<script src="__JS__/jquery.min.js"></script>
-		<!-- 其他插件的js -->
-		<script src="__JS__/flat-ui.min.js"></script>
-		<script src="__JS__/prettify.js"></script>
-		<script src="__JS__/application.js"></script>
-		<!--添加你的js文件-->
-		<script src="__JS__/myhome.js"></script>
-		<script src="__JS__/jquery.cookie.js"></script>
-		<script src="__JS__/template.js"></script>
+    <script src="__JS__/jquery.min.js"></script>
+    <!-- 其他插件的js -->
+    <script src="__JS__/flat-ui.min.js"></script>
+    <script src="__JS__/prettify.js"></script>
+    <script src="__JS__/application.js"></script>
+    <script src="__JS__/myhome.js"></script>
+    <script src="__JS__/jquery.cookie.js"></script>
+    <script src="__JS__/template.js"></script>
 	</body>
 </html>

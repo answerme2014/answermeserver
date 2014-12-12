@@ -229,3 +229,36 @@ img.photo{
 .takelike .add {
 	color: #16a085;
 }
+
+#class1 {
+	height: 28px;
+	font-size: 15px;
+	font-weight: normal;
+	margin-bottom: 2px!important;
+}
+
+#teacher1 {
+	height: 28px;
+	font-size: 15px;
+	font-weight: normal;
+	margin-bottom: 2px!important;
+}
+
+#place1 {
+	height: 28px;
+	font-size: 15px;
+	font-weight: normal;
+	margin-bottom: 2px!important;
+}
+
+#time1 {
+	height: 28px;
+	font-size: 15px;
+	font-weight: normal;
+	margin-bottom: 2px!important;
+}
+
+#finish-edit {
+	height: 28px;
+	padding:4px 10px 6px 10px;
+}
