@@ -44,6 +44,7 @@ function addone(t){
             break;
     }
 }
+var content;
 //动画js
 $(document).ready(function(){
     $(".addnew").click(function(){
@@ -52,5 +53,24 @@ $(document).ready(function(){
         var last=$(this).parent().prev();
         last.after('<li class><span class="fui-triangle-right-large"></span><span class="homeworkName">第 <span class="num">'+String(num+1)+'</span>次作业</span> <span class="fui-plus add"  onclick="addone(this)"></span><span class="fui-new edit" onclick="edit(this)"></span></li>');
         edit();
+    });
+    $.ajax({
+        type: 'POST',
+        url: '/answer_me/home.php/EditPage/getContent',
+        data: {'hid':'1','version':'1'},
+        dataType: "json",
+        success: function(data) {
+            console.log("Reply:");
+            console.log(data);
+            content=data['content'];
+        },
+        error: function(data) {
+            alert("error");
+            console.log(data);
+        }
+    });
+    ue.addListener("ready", function () {
+        // editor准备好之后才可以使用
+        ue.setContent(content);
     });
 });
