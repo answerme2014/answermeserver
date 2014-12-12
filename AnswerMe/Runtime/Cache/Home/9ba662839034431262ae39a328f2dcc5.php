@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -6,16 +6,16 @@
     <title>AnswerMe-Interest</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS-->
-    <link href="__CSS__/bootstrap.min.css" rel="stylesheet">
+    <link href="/answer_me/AnswerMe/Common/Static/css/bootstrap.min.css" rel="stylesheet">
     <!-- Flat UI CSS-->
-    <link href="__CSS__/flat-ui.css" rel="stylesheet">
+    <link href="/answer_me/AnswerMe/Common/Static/css/flat-ui.css" rel="stylesheet">
     <!--模板css-->
-    <link href="__CSS__/template.css" rel="stylesheet">
+    <link href="/answer_me/AnswerMe/Common/Static/css/template.css" rel="stylesheet">
     <!--添加你的CSS-->
-    <link href="__CSS__/interest.css" rel="stylesheet">
+    <link href="/answer_me/AnswerMe/Common/Static/css/interest.css" rel="stylesheet">
 
     <!--收藏夹图标-->
-    <link rel="shortcut icon" href="__RESOURCE__/favor-icon.jpg">
+    <link rel="shortcut icon" href="/answer_me/AnswerMe/Common/Static/resource/favor-icon.jpg">
   </head>
   
   <body>  
@@ -23,7 +23,7 @@
     <nav class="navbar navbar-inverse" role="navigation">
       <div class="navbar-header">
         <a class="navbar-brand" href='http://localhost/answer_me/home.php/HomePage'>
-          <img src="__RESOURCE__/logo-green.jpg">
+          <img src="/answer_me/AnswerMe/Common/Static/resource/logo-green.jpg">
           <span>Answer Me</span>
         </a>
       </div>
@@ -196,35 +196,33 @@
       <!-- 把你的css添加到上面的css中，把你的js添加到下面的js中-->
       <!-- 除了添加，不要改动一切其他东西-->
       <div id="wordInterest">请选择您感兴趣的课程：</div>
-      <volist name="courses" id="course">
-        <div class="bookDiv">
-          <a href="http://localhost/answer_me/home.php/CoursePage?cid=<{$course.cid}>&version=<{$course.version}>">
-            <img class="img-thumbnail" src="__RESOURCE__/<{$course.picture}>"></img>
-            <p class="cid hidden"><{$course.cid}></p>
-            <p class="version hidden"><{$course.version}></p>
-            <div class="bookName"><{$course.course_name}></div>
+      <?php if(is_array($courses)): $i = 0; $__LIST__ = $courses;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$course): $mod = ($i % 2 );++$i;?><div class="bookDiv">
+          <a href="http://localhost/answer_me/home.php/CoursePage?cid=<?php echo ($course["cid"]); ?>&version=<?php echo ($course["version"]); ?>">
+            <img class="img-thumbnail" src="/answer_me/AnswerMe/Common/Static/resource/<?php echo ($course["picture"]); ?>"></img>
+            <p class="cid hidden"><?php echo ($course["cid"]); ?></p>
+            <p class="version hidden"><?php echo ($course["version"]); ?></p>
+            <div class="bookName"><?php echo ($course["course_name"]); ?></div>
           </a> 
           <div class="checkbox">
             
               <input type="checkbox" name="box"  /> 选择关注
             
           </div>
-        </div>
-      </volist>
+        </div><?php endforeach; endif; else: echo "" ;endif; ?>
       
       <div id=btnComplete>
         <button id="btnComplete" type="button" class="btn btn-primary btn-lg col-sm-offset-5" href="http://localhost/answer_me/home.php/PersonalPage">完成</button>
       </div>
     </div>
     <!-- jQuery 的js -->
-    <script src="__JS__/jquery.min.js"></script>
+    <script src="/answer_me/AnswerMe/Common/Static/js/jquery.min.js"></script>
     <!-- 其他插件的js -->
-    <script src="__JS__/flat-ui.min.js"></script>
-    <script src="__JS__/prettify.js"></script>
-    <script src="__JS__/application.js"></script>
-    <script src="__JS__/interest.js"></script>
-    <script src="__JS__/jquery.cookie.js"></script>
-    <script src="__JS__/template.js"></script>
+    <script src="/answer_me/AnswerMe/Common/Static/js/flat-ui.min.js"></script>
+    <script src="/answer_me/AnswerMe/Common/Static/js/prettify.js"></script>
+    <script src="/answer_me/AnswerMe/Common/Static/js/application.js"></script>
+    <script src="/answer_me/AnswerMe/Common/Static/js/interest.js"></script>
+    <script src="/answer_me/AnswerMe/Common/Static/js/jquery.cookie.js"></script>
+    <script src="/answer_me/AnswerMe/Common/Static/js/template.js"></script>
     <!--添加你的js文件-->
   </body>
 </html>

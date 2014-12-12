@@ -1,21 +1,21 @@
 $(document).ready(function(){
-    var i = 1;
+    var i = 0;
     //var username = $.cookie("username");
     $(".bianji button").click(function() {
         ClickBianji();
-        //$(this).css("background-color", "#00bb99")
+        $(this).css("background-color", "#00bb99")
     });
     $(".jubao button").click(function() {
         Clickjubao();
-        //$(this).css("background-color", "#00bb99")
+        $(this).css("background-color", "#00bb99")
     });
     $(".lishibanben button").click(function() {
         Clicklishibanben();
-        //$(this).css("background-color", "#00bb99")
+        $(this).css("background-color", "#00bb99")
 
     });
     $(".fui-heart").click(function(){
-        if(i == 1) {
+        if(i == 0) {
             $(this).css("color","#dc143c");
             $(".like-number").css("color", "#dc143c");
         }
@@ -24,11 +24,12 @@ $(document).ready(function(){
             $(".like-number").css("color", "#00bb99");
         }  
 
-        var hid = parseInt($("div.header").attr("id"));
+        var hid = $("div.header").attr("id");
+        var j = i+1;
         $.ajax({
             type:"POST",
             url:"http://localhost/answer_me/home.php/SearchPage/like",
-            data:{"flag1":2, "flag2":parseInt(i),"hid":hid},
+            data:{hid:hid, flag1:2, flag2:j},
             dataType:"json",
             success:function(dataReturn) {
                 if (dataReturn.status == 1) {
@@ -43,8 +44,8 @@ $(document).ready(function(){
             }
         });
 
-        if(i == 1) i = 2;
-        else i = 1;
+        if(i == 0) i = 1;
+        else i = 0;
 
         //var like_number = parseInt($(".fui-heart").text());
     });

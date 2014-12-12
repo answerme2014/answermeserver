@@ -1,29 +1,29 @@
-﻿<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <!--题目-->
-    <title>AnswerMe-Interest</title>
+    <title>AnswerMe-Search</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS-->
-    <link href="__CSS__/bootstrap.min.css" rel="stylesheet">
+    <link href="/answer_me/AnswerMe/Common/Static/css/bootstrap.min.css" rel="stylesheet">
     <!-- Flat UI CSS-->
-    <link href="__CSS__/flat-ui.css" rel="stylesheet">
+    <link href="/answer_me/AnswerMe/Common/Static/css/flat-ui.css" rel="stylesheet">
     <!--模板css-->
-    <link href="__CSS__/template.css" rel="stylesheet">
+    <link href="/answer_me/AnswerMe/Common/Static/css/template.css" rel="stylesheet">
+    <link href="/answer_me/AnswerMe/Common/Static/css/search.css" rel="stylesheet">
     <!--添加你的CSS-->
-    <link href="__CSS__/interest.css" rel="stylesheet">
 
     <!--收藏夹图标-->
-    <link rel="shortcut icon" href="__RESOURCE__/favor-icon.jpg">
+    <link rel="shortcut icon" href="/answer_me/AnswerMe/Common/Static/resource/favor-icon.jpg">
   </head>
-  
+
   <body>  
     <!-- 导航栏 -->
     <nav class="navbar navbar-inverse" role="navigation">
       <div class="navbar-header">
         <a class="navbar-brand" href='http://localhost/answer_me/home.php/HomePage'>
-          <img src="__RESOURCE__/logo-green.jpg">
+          <img src="/answer_me/AnswerMe/Common/Static/resource/logo-green.jpg">
           <span>Answer Me</span>
         </a>
       </div>
@@ -55,7 +55,6 @@
       </div>
     </nav>
     <!-- /.导航栏 -->
-
     <!-- 模态框 -->
     <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -190,41 +189,48 @@
       </div>
     </div>
     <!-- /.模态框 -->
-    <!-- 内容 -->
-    <div id="content" class="container">
-      <!-- 大家在content中填写自己的页面内容 -->
-      <!-- 把你的css添加到上面的css中，把你的js添加到下面的js中-->
-      <!-- 除了添加，不要改动一切其他东西-->
-      <div id="wordInterest">请选择您感兴趣的课程：</div>
-      <volist name="courses" id="course">
-        <div class="bookDiv">
-          <a href="http://localhost/answer_me/home.php/CoursePage?cid=<{$course.cid}>&version=<{$course.version}>">
-            <img class="img-thumbnail" src="__RESOURCE__/<{$course.picture}>"></img>
-            <p class="cid hidden"><{$course.cid}></p>
-            <p class="version hidden"><{$course.version}></p>
-            <div class="bookName"><{$course.course_name}></div>
-          </a> 
-          <div class="checkbox">
-            
-              <input type="checkbox" name="box"  /> 选择关注
-            
-          </div>
-        </div>
-      </volist>
-      
-      <div id=btnComplete>
-        <button id="btnComplete" type="button" class="btn btn-primary btn-lg col-sm-offset-5" href="http://localhost/answer_me/home.php/PersonalPage">完成</button>
+  <!-- 内容 --> 
+  <div id="content" class="container"> 
+   <!-- 大家在content中填写自己的页面内容 --> 
+   <!-- 把你的css添加到上面的css中，把你的js添加到下面的js中--> 
+   <!-- 除了添加，不要改动一切其他东西--> 
+    <div class= "span1">
+      <div class="input-group"> 
+        <input type="text" class="form-control" placeholder="" id= "search">
+        <span class="input-group-btn"> 
+          <button type="submit" class="btn btn-primary" id = "searchcourse"> 搜索课程 </button> 
+          <button type="submit" class="btn btn-primary" id="searchhw"> 搜索作业 </button>
+        </span> 
       </div>
     </div>
-    <!-- jQuery 的js -->
-    <script src="__JS__/jquery.min.js"></script>
-    <!-- 其他插件的js -->
-    <script src="__JS__/flat-ui.min.js"></script>
-    <script src="__JS__/prettify.js"></script>
-    <script src="__JS__/application.js"></script>
-    <script src="__JS__/interest.js"></script>
-    <script src="__JS__/jquery.cookie.js"></script>
-    <script src="__JS__/template.js"></script>
-    <!--添加你的js文件-->
-  </body>
+    
+      <div class="not_found hidden">
+        <p><center>Answer尚未收录相关课程或作业信息，您可以选择创建相关课程</center></p>
+        <div class = "buttons">
+        <button type="button" class="btn btn-embossed btn-primary" href="http://localhost/answer_me/home.php/HomePage">回到首页</button>
+        <button type="button" class="btn btn-embossed btn-primary" href="http://localhost/answer_me/home.php/EditPage">创建课程</button>
+      </div>
+      </div>
+      <div class="not_found1 hidden">
+        <p><center>Answer尚未收录相关课程或作业信息，您可以选择创建相关课程</center></p>
+        <div class = "buttons">
+        <button type="button" class="btn btn-embossed btn-primary" href="http://localhost/answer_me/home.php/HomePage">回到首页</button>
+        <button type="button" class="btn btn-embossed btn-primary" href="http://localhost/answer_me/home.php/EditPage">创建作业</button>
+      </div>
+      </div>
+      <div class = "found hidden">
+       
+  </div>
+  </div>
+    <!-- jQuery 的js --> 
+    <script src="/answer_me/AnswerMe/Common/Static/js/jquery.min.js"></script> 
+    <!-- 其他插件的js --> 
+    <!-- // <script src="/bootstrap/js/bootstrap.min.js"></script>  -->
+    <script src="/answer_me/AnswerMe/Common/Static/js/flat-ui.min.js"></script> 
+    <script src="/answer_me/AnswerMe/Common/Static/js/prettify.js"></script> 
+    <script src="/answer_me/AnswerMe/Common/Static/js/application.js"></script> 
+    <script src="/answer_me/AnswerMe/Common/Static/js/search.js"></script> 
+    <script src="/answer_me/AnswerMe/Common/Static/js/template.js"></script> 
+    <script src="/answer_me/AnswerMe/Common/Static/js/jquery.cookie.js"></script>
+ </body>
 </html>

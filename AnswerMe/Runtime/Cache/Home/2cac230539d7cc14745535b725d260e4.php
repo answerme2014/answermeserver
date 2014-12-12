@@ -1,29 +1,29 @@
-﻿<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <!--题目-->
-    <title>AnswerMe-Interest</title>
+    <title>AnswerMe-Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS-->
-    <link href="__CSS__/bootstrap.min.css" rel="stylesheet">
+    <link href="/answer_me/AnswerMe/Common/Static/css/bootstrap.min.css" rel="stylesheet">
     <!-- Flat UI CSS-->
-    <link href="__CSS__/flat-ui.css" rel="stylesheet">
+    <link href="/answer_me/AnswerMe/Common/Static/css/flat-ui.css" rel="stylesheet">
     <!--模板css-->
-    <link href="__CSS__/template.css" rel="stylesheet">
+    <link href="/answer_me/AnswerMe/Common/Static/css/template.css" rel="stylesheet">
+    <link href="/answer_me/AnswerMe/Common/Static/css/home.css" rel="stylesheet">
     <!--添加你的CSS-->
-    <link href="__CSS__/interest.css" rel="stylesheet">
 
     <!--收藏夹图标-->
-    <link rel="shortcut icon" href="__RESOURCE__/favor-icon.jpg">
+    <link rel="shortcut icon" href="/answer_me/AnswerMe/Common/Static/resource/favor-icon.jpg">
   </head>
-  
+
   <body>  
     <!-- 导航栏 -->
     <nav class="navbar navbar-inverse" role="navigation">
       <div class="navbar-header">
         <a class="navbar-brand" href='http://localhost/answer_me/home.php/HomePage'>
-          <img src="__RESOURCE__/logo-green.jpg">
+          <img src="/answer_me/AnswerMe/Common/Static/resource/logo-green.jpg">
           <span>Answer Me</span>
         </a>
       </div>
@@ -46,7 +46,7 @@
             </ul>
           </div>
         </div>
-        <div class="unloged">
+        <div class="unloged ">
           <div id="btnNav" class="nav navbar-nav navbar-right btn-group">
             <button id="btnRegister" class="btn btn-sm navbar-btn" type="button" data-toggle="modal" data-target="#modalLogin">登录</button>
             <button id="btnLogin" class="btn btn-sm navbar-btn" type="button" data-toggle="modal" data-target="#modalRegister">注册</button>
@@ -55,7 +55,6 @@
       </div>
     </nav>
     <!-- /.导航栏 -->
-
     <!-- 模态框 -->
     <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -190,41 +189,72 @@
       </div>
     </div>
     <!-- /.模态框 -->
-    <!-- 内容 -->
-    <div id="content" class="container">
-      <!-- 大家在content中填写自己的页面内容 -->
-      <!-- 把你的css添加到上面的css中，把你的js添加到下面的js中-->
-      <!-- 除了添加，不要改动一切其他东西-->
-      <div id="wordInterest">请选择您感兴趣的课程：</div>
-      <volist name="courses" id="course">
-        <div class="bookDiv">
-          <a href="http://localhost/answer_me/home.php/CoursePage?cid=<{$course.cid}>&version=<{$course.version}>">
-            <img class="img-thumbnail" src="__RESOURCE__/<{$course.picture}>"></img>
-            <p class="cid hidden"><{$course.cid}></p>
-            <p class="version hidden"><{$course.version}></p>
-            <div class="bookName"><{$course.course_name}></div>
-          </a> 
-          <div class="checkbox">
-            
-              <input type="checkbox" name="box"  /> 选择关注
-            
-          </div>
-        </div>
-      </volist>
+  <!-- 内容 --> 
+  <div id="content" class="container"> 
+   <!-- 大家在content中填写自己的页面内容 --> 
+   <!-- 把你的css添加到上面的css中，把你的js添加到下面的js中--> 
+   <!-- 除了添加，不要改动一切其他东西--> 
+   <form role="form"> 
+    <div class="span1"> 
+     <div class="input-group"> 
+      <input type="text" class="form-control" id="search" /> 
+      <span class="input-group-btn"> <button type="submit" class="btn btn-primary" id = "searchcourse"> 搜索课程 </button> <button type="submit" class="btn btn-primary" id="searchhw"> 搜索作业 </button> </span> 
       
-      <div id=btnComplete>
-        <button id="btnComplete" type="button" class="btn btn-primary btn-lg col-sm-offset-5" href="http://localhost/answer_me/home.php/PersonalPage">完成</button>
-      </div>
+      
+     </div>
+     <!-- /input-group --> 
+
     </div>
-    <!-- jQuery 的js -->
-    <script src="__JS__/jquery.min.js"></script>
-    <!-- 其他插件的js -->
-    <script src="__JS__/flat-ui.min.js"></script>
-    <script src="__JS__/prettify.js"></script>
-    <script src="__JS__/application.js"></script>
-    <script src="__JS__/interest.js"></script>
-    <script src="__JS__/jquery.cookie.js"></script>
-    <script src="__JS__/template.js"></script>
-    <!--添加你的js文件-->
-  </body>
+    <!-- /.span1 --> 
+   </form> 
+
+   <div class="span2"> 
+    <p><font color="#ADADAD">最热课程</font></p> 
+   </div> 
+   <div class="sum"> 
+    <div class="top10"> 
+     <a href="#" class="list-group-item active" id = "top10title">
+   贡献排行榜
+</a>
+<?php if(is_array($userlist)): $i = 0; $__LIST__ = $userlist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$step): $mod = ($i % 2 );++$i;?><a href="#" class="list-group-item"><?php echo ($step["username"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
+    </div> 
+    <div class="main"> 
+
+     <?php if(is_array($courselist)): $i = 0; $__LIST__ = $courselist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$steps): $mod = ($i % 2 );++$i;?><div class="clear">
+     <div class="span3"> 
+      <div class="class_text"> 
+       <div class="class_head"> 
+        <p style="font-family:verdana;color:#19B68A" class="coursetitle"> <a href="http://localhost/answer_me/home.php/CoursePage?cid=<?php echo ($steps["cid"]); ?>&version=<?php echo ($steps["version"]); ?>"><?php echo ($steps["school"]); echo ($steps["college"]); ?> <?php echo ($steps["teacher"]); ?> <?php echo ($steps["course_name"]); ?></a> </p> 
+       </div> 
+       <div class="class_content"> 
+        <p style="font-family:verdana;font-size:50%;color:black" class="lasthw"> <?php echo ($steps["brief"]); ?> </p> 
+        <div class="fans_num"> 
+          
+          <a href="javascript:;" style="font-family:verdana;font-size:30%;color:#19B68A" class = "like"> <?php echo ($steps["like_number"]); ?>赞</a> 
+           <a>&nbsp</a>
+          <a href="javascript:;" style="font-family:verdana;font-size:30%;color:#19B68A" class = "follow"> <?php echo ($steps["taken_number"]); ?>关注</a> 
+         </div> 
+       </div> 
+      </div> 
+      <div class="classpic"> 
+       <a href="http://localhost/answer_me/home.php/CoursePage?cid=<?php echo ($steps["cid"]); ?>&version=<?php echo ($steps["version"]); ?>"><img src="/answer_me/AnswerMe/Common/Static/resource/<?php echo ($steps["picture"]); ?>" width="120" ;="" align="right" height="170" class= "bookimg" /></a> 
+      </div> 
+     </div> 
+     </div><?php endforeach; endif; else: echo "" ;endif; ?>
+
+      
+    </div> 
+    </div> 
+    </div> 
+    <!-- jQuery 的js --> 
+    <script src="/answer_me/AnswerMe/Common/Static/js/jquery.min.js"></script> 
+    <!-- 其他插件的js --> 
+    <!-- // <script src="/bootstrap/js/bootstrap.min.js"></script>  -->
+    <script src="/answer_me/AnswerMe/Common/Static/js/flat-ui.min.js"></script> 
+    <script src="/answer_me/AnswerMe/Common/Static/js/prettify.js"></script> 
+    <script src="/answer_me/AnswerMe/Common/Static/js/application.js"></script> 
+    <script src="/answer_me/AnswerMe/Common/Static/js/home.js"></script> 
+    <script src="/answer_me/AnswerMe/Common/Static/js/template.js"></script>
+    <script src="/answer_me/AnswerMe/Common/Static/js/jquery.cookie.js"></script>
+ </body>
 </html>

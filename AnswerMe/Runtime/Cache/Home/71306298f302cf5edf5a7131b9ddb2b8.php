@@ -1,28 +1,29 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<!--题目-->
-		<title>AnswerMe-作业编辑</title>
+		<title>AnswerMe-Settings</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Bootstrap CSS-->
-		<link href="__CSS__/bootstrap.min.css" rel="stylesheet">
+		<link href="/answer_me/AnswerMe/Common/Static/css/bootstrap.min.css" rel="stylesheet">
 		<!-- Flat UI CSS-->
-		<link href="__CSS__/flat-ui.css" rel="stylesheet">
+		<link href="/answer_me/AnswerMe/Common/Static/css/flat-ui.css" rel="stylesheet">
 		<!--模板css-->
-		<link href="__CSS__/template.css" rel="stylesheet">
+		<link href="/answer_me/AnswerMe/Common/Static/css/template.css" rel="stylesheet">
 		<!--添加你的CSS-->
-		<link href="__CSS__/homeworkEdit.css" rel="stylesheet">
+		<link href="/answer_me/AnswerMe/Common/Static/css/settings.css" rel="stylesheet">
+
 		<!--收藏夹图标-->
-		<link rel="shortcut icon" href="__RESOURCE__/favor-icon.jpg">
+		<link rel="shortcut icon" href="/answer_me/AnswerMe/Common/Static/resource/favor-icon.jpg">
 	</head>
 
 	<body>	
 		<!-- 导航栏 -->
 		<nav class="navbar navbar-inverse" role="navigation">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="home.html">
-					<img src="__RESOURCE__/logo-green.jpg">
+				<a class="navbar-brand" href="#">
+					<img src="/answer_me/AnswerMe/Common/Static/resource/logo-green.jpg">
 					<span>Answer Me</span>
 				</a>
 			</div>
@@ -30,7 +31,7 @@
 			<div class="collapse navbar-collapse" id="navbar-collapse-01">
 				<div class="loged hidden">
 					<span class="fui-user"></span>
-					<a href="myhome.html" id="usersname">KenLee</a>
+					<a href="PersonalPage" id="usersname">KenLee</a>
 					<span class="fui-heart"></span>
 					<a href="like.html" class="like-num">256</a>
 					<div class="btn-group">
@@ -39,7 +40,7 @@
 					  </button>
 					  <ul id="dropdownMenu" class="dropdown-menu" role="menu">
 					    <li><a href="#">编辑历史</a></li>
-					    <li><a href="#">设置</a></li>
+					    <li><a href="settings">设置</a></li>
 					    <li class="divider"></li>
 					    <li><a id="logout_">退出</a></li>
 					  </ul>
@@ -188,81 +189,93 @@
 			</div>
 		</div>
 		<!-- /.模态框 -->
-		
 		<!-- 内容 -->
 		<div id="content" class="container">
-			<div class="ed">
-				<form action="getContent.php" id="form" method="post">
-					<script id="editor" type="text/plain" style="width:800px;height:500px;">
-					</script>
-				</form>
-			</div>
-			<div class="catalog">
-				<div class="tile">
-					<div class="homeworkContent">
-						<div class="className">
-						  	人工智能
-						</div>
-						<ul class="allHomeworks">
-							<li>
-								<span class="fui-triangle-right-large"></span>
-								<span class="homeworkName">第 <span class="num">1</span>次作业</span>
-								<span class="fui-plus add" onclick="addone(this)"></span>
-								<span class="fui-new edit" onclick="edit(this)"></span>
-						 	</li>
-							<li class="editing">
-								<span class="fui-triangle-right-large"></span>
-								<span class="homeworkName">第 <span class="num">2</span> 次作业</span>
-								<span class="fui-plus add" onclick="addone(this)"></span>
-								<span class="fui-new edit" onclick="edit(this)"></span>
-							</li>
-							<li>
-								<span class="fui-triangle-right-large"></span>
-								<span class="homeworkName">第 <span class="num">3</span> 次作业</span>
-								<span class="fui-plus add" onclick="addone(this)"></span>
-								<span class="fui-new edit" onclick="edit(this)"></span>
-							</li>
-							<li>
-								<span class="fui-triangle-right-large"></span>
-								<span class="homeworkName">第 <span class="num">4</span> 次作业</span>
-								<span class="fui-plus add" onclick="addone(this)"></span>
-								<span class="fui-new edit" onclick="edit(this)"></span>
-							</li>
-							<li class="last">
-								<div class="addnew">
-									<span class="fui-plus"></span>
-									增加新作业
-								</div>
-							</li>
-						</ul>
+			<!-- 大家在content中填写自己的页面内容 -->
+			<!-- 把你的css添加到上面的css中，把你的js添加到下面的js中-->
+			<!-- 除了添加，不要改动一切其他东西-->
+			<form class="form-horizontal" role="form">
+				<div class="form-group">
+					<label for="inputUsername1" class="col-sm-2 control-label">用户名</label>
+					<div class="col-sm-10">
+						<input type="email" class="form-control" id="inputUsername1">
 					</div>
-				 </div>
-				<button  class="btn btn-primary btn-wide submit" onclick="kfSubmit()">提交</button>
-				<button  class="btn btn-default btn-wide cancel">放弃</button>
-			</div>
+				</div>
+				<div class="form-group">
+					<label for="inputPassword1" class="col-sm-2 control-label">密码</label>
+					<div class="col-sm-10">
+						<input type="password" class="form-control" id="inputPassword1">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputRepeatpassword" class="col-sm-2 control-label">重复密码</label>
+					<div class="col-sm-10">
+						<input type="password" class="form-control" id="inputRepeatpassword">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputEmail" class="col-sm-2 control-label">邮箱</label>
+					<div class="col-sm-10">
+						<input type="email" class="form-control" id="inputEmail">
+					</div>
+				</div>							
+				<div class="form-group">
+					<label for="inputSchool" class="col-sm-2 control-label">学校</label>
+					<select class="form-control" id="selectSchool">
+						<option>选择你的学校</option>
+						<option>中山大学</option>
+						<option>清华大学</option>
+						<option>北京大学</option>
+						<option>华南理工大学</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="inputCollege" class="col-sm-2 control-label">学院</label>
+					<select class="form-control" id="selectCollege">
+						<option>选择你的学院</option>
+						<option>软件学院</option>
+						<option>岭南学院</option>
+						<option>医学院</option>
+						<option>社会教育学院</option>
+						<option>信息科学与技术学院</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="inputMajor" class="col-sm-2 control-label">专业</label>
+					<select class="form-control" id="selectMajor">
+						<option>选择你的专业</option>
+						<option>数字媒体</option>
+						<option>电子政务</option>
+						<option>嵌入式软件</option>
+						<option>通用软件</option>
+						<option>计算机应用</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="inputYear" class="col-sm-2 control-label">入学年份</label>
+					<select class="form-control" id="selectYear">
+						<option>选择你的入学年份</option>
+						<option>2014</option>
+						<option>2013</option>
+						<option>2012</option>
+						<option>2011</option>
+						<option>2010</option>
+					</select>
+				</div>
+			</form>
+			<button type="button" class="btn btn-block" data-dismiss="modal">确认修改</button>
 		</div>
 		<!-- /.内容 -->
 
 		<!-- jQuery 的js -->
-		<script src="__JS__/jquery.min.js"></script>
+		<script src="/answer_me/AnswerMe/Common/Static/js/jquery.min.js"></script>
 		<!-- 其他插件的js -->
-		<script src="__JS__/flat-ui.min.js"></script>
-		<script src="__JS__/prettify.js"></script>
-		<script src="__JS__/application.js"></script>
+		<script src="/answer_me/AnswerMe/Common/Static/js/flat-ui.min.js"></script>
+		<script src="/answer_me/AnswerMe/Common/Static/js/prettify.js"></script>
+		<script src="/answer_me/AnswerMe/Common/Static/js/application.js"></script>
+		<script src="/answer_me/AnswerMe/Common/Static/js/settings.js"></script>
+		<script src="/answer_me/AnswerMe/Common/Static/js/jquery.cookie.js"></script>
+		<script src="/answer_me/AnswerMe/Common/Static/js/template.js"></script>
 		<!--添加你的js文件-->
-		<!--ueditor的js-->
-		<script type="text/javascript" charset="utf-8" src="__UEDITOR__/ueditor.config.js"></script>
-	    <script type="text/javascript" charset="utf-8" src="__UEDITOR__/ueditor.all.min.js"> </script>
-	    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
-	    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
-	    <script type="text/javascript" charset="utf-8" src="__UEDITOR__/lang/zh-cn/zh-cn.js"></script>
-	    <!--公式插件-->
-	    <script type="text/javascript" charset="utf-8" src="__UEDITOR__/kityformula-plugin/addKityFormulaDialog.js"></script>
-	    <script type="text/javascript" charset="utf-8" src="__UEDITOR__/kityformula-plugin/getKfContent.js"></script>
-	    <script type="text/javascript" charset="utf-8" src="__UEDITOR__/kityformula-plugin/defaultFilterFix.js"></script>
-	    <!--自定义js-->
-	   	<script type="text/javascript" charset="utf-8" src="__JS__/homeworkEdit.js"></script>
-	   	<script src="__JS__/jquery.cookie.js"></script>
-	   	<script src="__JS__/template.js"></script>
 	</body>
 </html>

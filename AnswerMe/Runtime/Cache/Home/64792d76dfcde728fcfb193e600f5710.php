@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
@@ -6,15 +6,15 @@
 		<title>AnswerMe-作业编辑</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Bootstrap CSS-->
-		<link href="__CSS__/bootstrap.min.css" rel="stylesheet">
+		<link href="/answer_me/AnswerMe/Common/Static/css/bootstrap.min.css" rel="stylesheet">
 		<!-- Flat UI CSS-->
-		<link href="__CSS__/flat-ui.css" rel="stylesheet">
+		<link href="/answer_me/AnswerMe/Common/Static/css/flat-ui.css" rel="stylesheet">
 		<!--模板css-->
-		<link href="__CSS__/template.css" rel="stylesheet">
+		<link href="/answer_me/AnswerMe/Common/Static/css/template.css" rel="stylesheet">
 		<!--添加你的CSS-->
-		<link href="__CSS__/homeworkEdit.css" rel="stylesheet">
+		<link href="/answer_me/AnswerMe/Common/Static/css/homeworkEdit.css" rel="stylesheet">
 		<!--收藏夹图标-->
-		<link rel="shortcut icon" href="__RESOURCE__/favor-icon.jpg">
+		<link rel="shortcut icon" href="/answer_me/AnswerMe/Common/Static/resource/favor-icon.jpg">
 	</head>
 
 	<body>	
@@ -22,7 +22,7 @@
 		<nav class="navbar navbar-inverse" role="navigation">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="home.html">
-					<img src="__RESOURCE__/logo-green.jpg">
+					<img src="/answer_me/AnswerMe/Common/Static/resource/logo-green.jpg">
 					<span>Answer Me</span>
 				</a>
 			</div>
@@ -244,25 +244,25 @@
 		<!-- /.内容 -->
 
 		<!-- jQuery 的js -->
-		<script src="__JS__/jquery.min.js"></script>
+		<script src="/answer_me/AnswerMe/Common/Static/js/jquery.min.js"></script>
 		<!-- 其他插件的js -->
-		<script src="__JS__/flat-ui.min.js"></script>
-		<script src="__JS__/prettify.js"></script>
-		<script src="__JS__/application.js"></script>
+		<script src="/answer_me/AnswerMe/Common/Static/js/flat-ui.min.js"></script>
+		<script src="/answer_me/AnswerMe/Common/Static/js/prettify.js"></script>
+		<script src="/answer_me/AnswerMe/Common/Static/js/application.js"></script>
 		<!--添加你的js文件-->
 		<!--ueditor的js-->
-		<script type="text/javascript" charset="utf-8" src="__UEDITOR__/ueditor.config.js"></script>
-	    <script type="text/javascript" charset="utf-8" src="__UEDITOR__/ueditor.all.min.js"> </script>
+		<script type="text/javascript" charset="utf-8" src="/answer_me/AnswerMe/Common/Static/ueditor/ueditor.config.js"></script>
+	    <script type="text/javascript" charset="utf-8" src="/answer_me/AnswerMe/Common/Static/ueditor/ueditor.all.min.js"> </script>
 	    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
 	    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
-	    <script type="text/javascript" charset="utf-8" src="__UEDITOR__/lang/zh-cn/zh-cn.js"></script>
+	    <script type="text/javascript" charset="utf-8" src="/answer_me/AnswerMe/Common/Static/ueditor/lang/zh-cn/zh-cn.js"></script>
 	    <!--公式插件-->
-	    <script type="text/javascript" charset="utf-8" src="__UEDITOR__/kityformula-plugin/addKityFormulaDialog.js"></script>
-	    <script type="text/javascript" charset="utf-8" src="__UEDITOR__/kityformula-plugin/getKfContent.js"></script>
-	    <script type="text/javascript" charset="utf-8" src="__UEDITOR__/kityformula-plugin/defaultFilterFix.js"></script>
+	    <script type="text/javascript" charset="utf-8" src="/answer_me/AnswerMe/Common/Static/ueditor/kityformula-plugin/addKityFormulaDialog.js"></script>
+	    <script type="text/javascript" charset="utf-8" src="/answer_me/AnswerMe/Common/Static/ueditor/kityformula-plugin/getKfContent.js"></script>
+	    <script type="text/javascript" charset="utf-8" src="/answer_me/AnswerMe/Common/Static/ueditor/kityformula-plugin/defaultFilterFix.js"></script>
 	    <!--自定义js-->
-	   	<script type="text/javascript" charset="utf-8" src="__JS__/homeworkEdit.js"></script>
-	   	<script src="__JS__/jquery.cookie.js"></script>
-	   	<script src="__JS__/template.js"></script>
+	   	<script type="text/javascript" charset="utf-8" src="/answer_me/AnswerMe/Common/Static/js/homeworkEdit.js"></script>
+	   	<script src="/answer_me/AnswerMe/Common/Static/js/jquery.cookie.js"></script>
+	   	<script src="/answer_me/AnswerMe/Common/Static/js/template.js"></script>
 	</body>
 </html>

@@ -78,8 +78,11 @@ function logout() {
     });
 }
 function valid_username(user) {
-        var patten = new RegExp(/^[a-zA-Z0-9_\u4e00-\u9fa5]+$/);
-        return patten.test(user);
+        var patten = /^[a-zA-Z0-9_]{1,16}$/;
+        if( patten.test(user)){
+               return true;
+        }
+        return false;
 }
 
 function valid_email(email) {
@@ -88,31 +91,34 @@ function valid_email(email) {
 }
 
 function valid_password(pass) {
-        var patten = new RegExp(/^[a-zA-Z]w{5,17}$/);
-        return patten.test(pass);
+        var reg = /^[a-zA-Z0-9]{5,17}$/;
+        if( reg.test(pass)){
+               return true;
+        }
+        return false;
 }
 
 function register() {
-    var user=$("#inputUsername1").val();
-    var email=$("#inputEmail").val();
-    var pass=$("#inputPassword1").val();
-    // if( $('#inputUsername1').val()== "" || $('#inputPassword1').val()== "" || $("#inputRepeatpassword").val()== "" || $("#inputEmail").val()== "" || $("#selectSchool").val()== "" || $("#selectCollege").val()== "" || $("#selectMajor").val()== "" || $("#selectYear").val()== ""){
-    //     alert("您输入的信息不完整，请重新输入");
-    // } else if(valid_username(user)){
-    //     alert("您输入的邮箱格式有误，请重新输入");
-    //     $('#inputEmail').value=""; 
-    // } else if( $('#inputPassword1').val() != $('#inputRepeatpassword').val()){
-    //     alert("您输入的密码不相符，请重新输入");
-    //     $('#inputPassword1').value=""; 
-    //     $("#inputRepeatpassword").value= "";
-    // } else if(valid_password(pass)){
-    //     alert("您输入的密码格式有误，请输入6-18位的数字或字母");
-    //     $('#inputPassword1').value=""; 
-    //     $("#inputRepeatpassword").value= "";
-    // } else if(valid_email(email)){
-    //     alert("您输入的邮箱格式有误，请重新输入");
-    //     $('#inputEmail').value=""; 
-    // } else {
+    var user11=$.trim($("#inputUsername1").val());
+    var email=$.trim($("#inputEmail").val());
+    var pass11=$.trim($("#inputPassword1").val());
+     if( $('#inputUsername1').val()== "" || $('#inputPassword1').val()== "" || $("#inputRepeatpassword").val()== "" || $("#inputEmail").val()== "" || $("#selectSchool").val()== "" || $("#selectCollege").val()== "" || $("#selectMajor").val()== "" || $("#selectYear").val()== ""){
+         alert("您输入的信息不完整，请重新输入");
+     } else if( $('#inputPassword1').val() != $('#inputRepeatpassword').val()){
+         alert("您输入的密码不相符，请重新输入");
+         $('#inputPassword1').value=""; 
+         $("#inputRepeatpassword").value= "";
+     }  else if(!valid_username(user11)){
+         alert("您输入的用户名有误，请重新输入");
+         $('#inputUsername1').value=""; 
+     } else if(!valid_password(pass11)){
+         alert("您输入的密码格式有误，请输入6-18位的数字或字母");
+         $('#inputPassword1').value=""; 
+         $("#inputRepeatpassword").value= "";
+     } else if(!valid_email(email)){
+         alert("您输入的邮箱格式有误，请重新输入");
+         $('#inputEmail').value=""; 
+     } else {
         $.ajax({
             type: "POST",
             url: "http://localhost/answer_me/home.php/MainNavigation/register",
@@ -126,7 +132,7 @@ function register() {
                     alert("注册成功！");
 
                     //将页面重定向到“感兴趣的课程页面”
-                    window.location.href = "../InterestPage";
+                    window.location.href = "InterestPage";
                 } else {
                     alert(data.msg);
                 }
@@ -135,5 +141,5 @@ function register() {
                 alert("ajax访问失败！");
             }
         });
-    // }
+      }
 }

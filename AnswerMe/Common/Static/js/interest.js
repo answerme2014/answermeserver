@@ -24,7 +24,7 @@ function complete() {
             if (data.status == 1) {
             	alert("课程关注成功！");
 
-            	window.location.href = "../PersonalPage";
+            	window.location.href = "PersonalPage";
             } else {
             	alert(data.msg);
             }

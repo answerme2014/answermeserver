@@ -22,7 +22,7 @@
     <!-- 导航栏 -->
     <nav class="navbar navbar-inverse" role="navigation">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href='http://localhost/answer_me/home.php/HomePage'>
           <img src="__RESOURCE__/logo-green.jpg">
           <span>Answer Me</span>
         </a>
@@ -31,16 +31,16 @@
       <div class="collapse navbar-collapse" id="navbar-collapse-01">
         <div class="loged hidden">
           <span class="fui-user"></span>
-          <a href="PersonalPage" id="usersname">KenLee</a>
+          <a href="http://localhost/answer_me/home.php/PersonalPage" id="usersname">KenLee</a>
           <span class="fui-heart"></span>
-          <a href="/like.html" class="like-num">256</a>
+          <a href="like.html" class="like-num">256</a>
           <div class="btn-group">
             <button id="chooseBtn" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
              more <span class="caret"></span>
             </button>
             <ul id="dropdownMenu" class="dropdown-menu" role="menu">
-              <li><a href="userHistory.html">编辑历史</a></li>
-              <li><a href="settings.html">设置</a></li>
+              <li><a href="http://localhost/answer_me/home.php/HistoryPage">编辑历史</a></li>
+              <li><a href="http://localhost/answer_me/home.php/SettingPage">设置</a></li>
               <li class="divider"></li>
               <li><a id="logout_">退出</a></li>
             </ul>
@@ -203,108 +203,25 @@
         </span> 
       </div>
     </div>
-      <div class= "span2">
-        <p><font color = "#ADADAD">相关作业</font></p>
-      </div>
-      <div class="not_found">
+    
+      <div class="not_found hidden">
         <p><center>Answer尚未收录相关课程或作业信息，您可以选择创建相关课程</center></p>
         <div class = "buttons">
-        <button type="button" class="btn btn-embossed btn-primary">回到首页</button>
-        <button type="button" class="btn btn-embossed btn-primary">创建课程</button>
+        <button type="button" class="btn btn-embossed btn-primary" href="http://localhost/answer_me/home.php/HomePage">回到首页</button>
+        <button type="button" class="btn btn-embossed btn-primary" href="http://localhost/answer_me/home.php/EditPage">创建课程</button>
       </div>
       </div>
-      <div class = "found">
-      <div class= "span3">
-        <div class= "class_text" >
-          <div class= "class_head">
-            <p style="font-family:verdana;color:#19B68A">
-              <a href="CoursePage?cid=7" class="coursetitle">《数据库原理》 中山大学软件学院  冯剑琳
-              </a>
-            </p>
-          </div>
-          <div class= "class_content">
-          <p style="font-family:verdana;font-size:50%;color:black" class="lasthw">
-            第3周作业：</br>
-            1、显示当前数据库服务器中的数据库列表：mysql> SHOW DATABASES;</br>
-            2、建立数据库：mysql> CREATE DATABASE 库名;</br>
-            3、建立数据表：mysql> USE 库名;mysql> CREATE TABLE 表名 (字段名 VARCHAR(20), 字段名 CHAR(1));</br>
-            4、删除数据库：mysql> DROP DATABASE 库名;</br>
-            5、合理的使用索引，删除数据表：mysql> DROP TABLE 表名；
-          </p>
-          <div class="fans_num"> 
-
-          <a href="javascript:;" style="font-family:verdana;font-size:30%;color:#19B68A" class = "like">47赞</a> 
-           <a>&nbsp</a>
-          <a href="javascript:;" style="font-family:verdana;font-size:30%;color:#19B68A" class = "follow">233关注</a> 
-         </div> 
-        </div>
+      <div class="not_found1 hidden">
+        <p><center>Answer尚未收录相关课程或作业信息，您可以选择创建相关课程</center></p>
+        <div class = "buttons">
+        <button type="button" class="btn btn-embossed btn-primary" href="http://localhost/answer_me/home.php/HomePage">回到首页</button>
+        <button type="button" class="btn btn-embossed btn-primary" href="http://localhost/answer_me/home.php/EditPage">创建作业</button>
       </div>
-      <div class = "classpic">
-       <a href="classpage.html"><img src="__RESOURCE__/yy/class1.jpg" width="130" ;="" align="right" height="180" class= "bookimg"/></a> 
-      </div> 
-    </div>
-    <div class = "clear"/>
-      <div class= "span3">
-        <div class= "class_text" >
-          <div class= "class_head">
-            <p style="font-family:verdana;color:#19B68A">
-              <a href="PersonalPage" class="coursetitle">《数据库基础》 中山大学信息科学与技术学院  李凌
-              </a>
-            </p>
-          </div>
-          <div class= "class_content">
-          <p style="font-family:verdana;font-size:50%;color:black" class="lasthw">
-            第4周作业：</br>
-            1．现有关系数据库如下： </br>
-            数据库名：我班同学数据库、同学表(学号 char(6)，姓名，性别，年龄，民族，身份证号，宿舍号) </br>
-            用SQL语言实现下列功能的sql语句代码：</br>
-            1).创建数据库“我班同学数据库”代码。</br>
-            2).创建数据表“宿舍表”代码；
-          </p>
-          <div class="fans_num"> 
-
-          <a href="javascript:;" style="font-family:verdana;font-size:30%;color:#19B68A" class = "like">47赞</a> 
-           <a>&nbsp</a>
-          <a href="javascript:;" style="font-family:verdana;font-size:30%;color:#19B68A" class = "follow">233关注</a> 
-         </div> 
-        </div>
       </div>
-      <div class = "classpic">
-        <a href="classpage.html"><img src="__RESOURCE__/yy/class2.jpg" width="130" ;="" align="right" height="180" class= "bookimg"/></a> 
-      </div> 
-      </div> 
-      <div class = "clear"/>
-      <div class= "span3">
-        <div class= "class_text" >
-          <div class= "class_head">
-            <p style="font-family:verdana;color:#19B68A">
-              <a href="PersonalPage" class="coursetitle">《数据库原理》 上海交通大学计算机系  王文
-              </a>
-            </p>
-          </div>
-          <div class= "class_content">
-          <p style="font-family:verdana;font-size:50%;color:black" class="lasthw">
-            第7周作业：</br>
-            1、简述数据库管理技术发展的三个阶段。各阶段的特点是什么？ </br>
-            2、数据库系统包括哪几个主要组成部分？各部分的功能是什么？画出整个数据库系统的层次结构图。</br>
-            3、DBA指什么？它的主要职责是什么？</br>
-            4、解释实体、属性、实体键、实体集、实体型、实体联系类型、记录、数据项、字段、记录型、文件、实体模型、数据模型的含义。 </br>
-            5、合理的使用索引，分析例2
-          </p>
-         <div class="fans_num"> 
-
-          <a href="javascript:;" style="font-family:verdana;font-size:30%;color:#19B68A" class = "like">47赞</a> 
-           <a>&nbsp</a>
-          <a href="javascript:;" style="font-family:verdana;font-size:30%;color:#19B68A" class = "follow">233关注</a> 
-         </div> 
-        </div>
-      </div>
-      <div class = "classpic">
-        <a href="classpage.html"><img src="__RESOURCE__/yy/class3.jpg" width="130" ;="" align="right" height="180" class= "bookimg"/></a> 
-      </div> 
-    </div>
+      <div class = "found hidden">
+       
   </div>
-    </div> 
+  </div>
     <!-- jQuery 的js --> 
     <script src="__JS__/jquery.min.js"></script> 
     <!-- 其他插件的js --> 
