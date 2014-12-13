@@ -61,26 +61,23 @@ class PersonalPageController extends Controller {
         	->field('HW_now')
         	->find();
         $nextorder = $takefind['HW_now'] + 1;
-        $homeworkindexfind = $homeworkindex->where('order='.$nextorder)
-        	->find();
+        //获取下一次作业
+        $homeworkindexfind = $homeworkindex->table('homeworkindex H')
+            ->join('contain C on H.hid = C.hid')
+            ->where("C.cid=".$cid." AND H.order=".$nextorder)
+            ->field('C.hid, H.version')
+            ->find();
         if ($homeworkindexfind) {
         	//当前作业不是最后一次作业
         	//修改take表中属性HW_now
         	$data['HW_now'] = $nextorder;
         	$take->where('uid='.$uid.' AND cid='.$cid)->save($data);
 
-        	//获取下一次作业
-        	$homeworkindexfind2 = $homeworkindex->table('homeworkindex H')
-        		->join('contain C on H.hid = C.hid')
-        		->where("C.cid=".$cid." AND H.order=".$nextorder)
-        		->field('C.hid, H.version')
-        		->find();
-        	$homeworkfind = $homework->where($homeworkindexfind2)
+        	$homeworkfind = $homework->where($homeworkindexfind)
         		->field('hid, version, title, due_time, content')
         		->find();
         	if ($homeworkfind) {
         		$dataReturn['status'] = 1;
-        		$dataReturn['homework'] = $homeworkfind;
         	} else {
         		$dataReturn['status'] = 0;
 				$dataReturn['msg'] = "操作不成功";
@@ -88,7 +85,7 @@ class PersonalPageController extends Controller {
         } else {
         	//当前作业为最后一次作业
         	//修改take表中属性HW_now
-        	$data['HW_now'] = $nextorder;
+        	$data['HW_now'] = 0;
         	$take->where('uid='.$uid.' AND cid='.$cid)->save($data);
 
         	$dataReturn['status'] = 2;
