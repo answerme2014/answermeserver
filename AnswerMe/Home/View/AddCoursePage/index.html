@@ -197,58 +197,87 @@
 			<!-- 左边目录 -->
 			<!-- 搜索框 -->
 			  <!-- 右边内容 -->
-	 <div class="right-content tile">
-		<div class="info-bar">
-			<div class="course-info-bar">
-				<div class="photo">
+	 <div class="right-content">
+		
+			<div class="sum">
+				<div class="photos">
 					<img class="photo" src="__RESOURCE__/" alt="bookpic">
+        </br>
+        </br>
+          <center><button class="btn btn-primary">更换图片</button></center>
 				</div>
-				<div class="info">
-					<span class="class-name"></span>
-					<a span class="fui-new edit" href="#"></a>
-					<br>
-					<span class="else">任课教师：</span>
-					<span class="else" id="course-teacher"></span>
-					<br>
-					<span class="else">上课地点：</span>
-					<span class="else" id="course-place"></span>
-					<br>
-					<span class="else">上课时间：</span>
-					<span class="else" id="course-time"></span>
-					<br>
-					<div class="dropdown" id="download">
-						<button class="btn btn-default dropdown-toggle" type="button" id="download" data-toggle="dropdown">
-						下载
-							<span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu" role="menu" aria-labelledby="download">
-							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">一.ppt</a></li>
-							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">二.ppt</a></li>
-							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">三.ppt</a></li>
-							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">四.ppt</a></li>
-						</ul>
-					</div>
-					<br>
-				</div>
-				<div class="takelike">
-					<span class="fui-plus add" id="care-img"></span>
-					<span class="else else-num" id="care"></span>
-					<br>
-					<span class="fui-heart add" id="good-img"></span>
-					<span class="else else-num" id="good"></span>
-				</div>
-		</div>
+				<div class="infos">
+					    <span>
+                <label >学校</label>
+                <select class="form-control" >
+                  <option>选择你的学校</option>
+                  <option>中山大学</option>
+                  <option>清华大学</option>
+                  <option>北京大学</option>
+                  <option>华南理工大学</option>
+                </select>
+              </span>
+              
+                <label >学院</label>
+                <select class="form-control" >
+                  <option>选择你的学院</option>
+                  <option>软件学院</option>
+                  <option>岭南学院</option>
+                  <option>医学院</option>
+                  <option>社会教育学院</option>
+                  <option>信息科学与技术学院</option>
+                </select>
+              
+              
+                <label >专业</label>
+                <select class="form-control" >
+                  <option>选择你的专业</option>
+                  <option>数字媒体</option>
+                  <option>电子政务</option>
+                  <option>嵌入式软件</option>
+                  <option>通用软件</option>
+                  <option>计算机应用</option>
+                </select>
+             
+              
+                <label>年级</label>
+                <select class="form-control" >
+                  <option>选择你的入学年份</option>
+                  <option>2014</option>
+                  <option>2013</option>
+                  <option>2012</option>
+                  <option>2011</option>
+                  <option>2010</option>
+                </select>
+             </div>
+             <div class="infos">
+                <label >课程名称</label>
+                <input  class="form-control">
+             
+              
+                <label >任课教师</label>
+                <input  class="form-control">
+              
+             
+                <label >上课时间</label>
+                <input  class="form-control">
+             
+              
+                <label >上课地点</label>
+                <input  class="form-control">
+                 </div>
 
-		<div class="h-list-info">
-		<div class="hw-list-info">
-	    <div class="tile hw-list add-homework">
-			<span class="else" onclick="createNew()"><span class="book">添加新的作业</span></span>
-	    </div>
-		</div>
-		</div>
-	</div>
-	</div>
+       </div>
+       
+			</div>
+      <div id="finish">
+      <center><button class="btn btn-primary">完成编辑</button></center>
+    </div>
+      </div>
 
+		
+	
+	
 
 
 	<!-- jQuery (necessary for Flat UI's JavaScript plugins) -->

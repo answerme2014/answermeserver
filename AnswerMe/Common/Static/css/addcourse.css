@@ -1,4 +1,4 @@
-
+﻿
 
 body {
 	margin:0!important;
@@ -9,6 +9,11 @@ body {
 	background-color: #FFF;
 	margin-bottom: 0!important;
 	height: 620px;
+}
+#finish {
+
+	text-align:center;
+margin-left: auto; margin-right: auto; 
 }
 .left {
 	margin: 45px 2px 0 11px;
@@ -95,24 +100,27 @@ body {
 	margin-right: 20px;
 	margin-top: 20px;
 	border-bottom: 1px dotted #1abc9c;
-	text-align:left;
+	
 	padding-bottom: 10px;
 	margin-bottom: 20px;
 	overflow: hidden;
 
 }
-
-div.photo{
+.sum{
+width: 60%;
+margin-left: 20%;
+}
+div.photos{
 	float: left;
 	width: 120px;
 	height: 150px;
 	margin-right: 15px;
 }
 
-.info{
+.infos{
 	float: left;
-	margin-left: 10px;
-	margin-bottom: 10px;
+	margin: 20px;
+	
 }
 
 .info .add {
@@ -133,6 +141,7 @@ div.photo{
 }
 
 img.photo{
+margin-top: 50px;
 	width:130px;
 	height:165px
 }
@@ -188,17 +197,12 @@ img.photo{
 }
 
 .right-content{
-	margin: 45px 11px 0 20px;
-	width: 810px;
-	height: 575px;
-	float: right;
-	background-color: #ecf0f1;
+	margin-top: 45px;
+	clear: both;	
+	
+	height:400px;
 	font-family: "微软雅黑";
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
-	overflow: auto;
-	overflow-x: hidden;
-	overflow-y: hidden;
+	
 }
 
 .good {
