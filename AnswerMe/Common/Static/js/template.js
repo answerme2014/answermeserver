@@ -29,7 +29,6 @@ function init() {
 function login() {
     var username = $("#inputUsername").val();
     var password = $("#inputPassword").val();
-    alert();
     $.ajax({
         type: "POST",
         url: "http://localhost/answer_me/home.php/MainNavigation/login",
