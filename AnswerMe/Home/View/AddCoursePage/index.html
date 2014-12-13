@@ -3,25 +3,25 @@
 	<head>
 		<meta charset="utf-8">
 		<!--题目-->
-		<title>AnswerMe-个人主页</title>
+		<title>Answer-课程主页</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Bootstrap CSS-->
-		<link href="__CSS__/bootstrap.min.css" rel="stylesheet">
-		<!-- Flat UI CSS-->
-		<link href="__CSS__/flat-ui.css" rel="stylesheet">
-		<!--模板css-->
-		<link href="__CSS__/template.css" rel="stylesheet">
-		<!--添加你的CSS-->
-		<link href="__CSS__/myhome.css" rel="stylesheet">
-		<link href="__CSS__/classpage.css" rel="stylesheet">
+    <link href="__CSS__/bootstrap.min.css" rel="stylesheet">
+    <!-- Flat UI CSS-->
+    <link href="__CSS__/flat-ui.css" rel="stylesheet">
+    <!--模板css-->
+    <link href="__CSS__/template.css" rel="stylesheet">
+    <link href="__CSS__/addcourse.css" rel="stylesheet">
+
 		<!--收藏夹图标-->
-		<link rel="shortcut icon" href="__RESOURCE__/favor-icon.jpg">
+		<link rel="shortcut icon" href="resource/favor-icon.jpg">
 	</head>
+
 	<body>	
 		<!-- 导航栏 -->
     <nav class="navbar navbar-inverse" role="navigation">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/answer_me/home.php/HomePage/">
+        <a class="navbar-brand" href="home.html">
           <img src="__RESOURCE__/logo-green.jpg">
           <span>Answer Me</span>
         </a>
@@ -194,195 +194,73 @@
 			<!-- 大家在content中填写自己的页面内容 -->
 			<!-- 把你的css添加到上面的css中，把你的js添加到下面的js中-->
 			<!-- 除了添加，不要改动一切其他东西-->
-
-			<div class="left">
-				<div class="col-xs-4">
-					<div class="course-list todo">
-						<div class="course-search todo-search">
-							<select class="search-type">
-								<option value="course-tosearch">课程</option>
-								<option value="problem-tosearch">习题</option>
-							</select>
-							<input class="course-search-field todo-search-field" type="search" value="" placeholder="Search" />
-						</div>
-						<ul class="course-lists">
-							<volist name="homeworks" id="homework">
-								<li class="course-list-item" id="<{$homework.cid}>">
-									<div class="course-content todo-content">
-										<h4 class="course-name todo-name"><{$homework.course_name}></h4>
-									</div>
-								</li>
-							</volist>
-							<!--<li class="course-list-item">
-								<div class="course-content todo-content">
-									<h4 class="course-name todo-name">Web安全</h4>
-								</div>
-							</li>
-							<li class="course-list-item">
-								<div class="course-content todo-content">
-									<h4 class="course-name todo-name">编译原理</h4>
-								</div>
-							</li>
-							<li class="course-list-item">
-								<div class="course-content todo-content">
-									<h4 class="course-name todo-name">算法导论</h4>
-								</div>
-							</li>
-							<li class="course-list-item">
-								<div class="course-content todo-content">
-									<h4 class="course-name todo-name">计算机网络</h4>
-								</div>
-							</li>-->
+			<!-- 左边目录 -->
+			<!-- 搜索框 -->
+			  <!-- 右边内容 -->
+	 <div class="right-content tile">
+		<div class="info-bar">
+			<div class="course-info-bar">
+				<div class="photo">
+					<img class="photo" src="__RESOURCE__/" alt="bookpic">
+				</div>
+				<div class="info">
+					<span class="class-name"></span>
+					<a span class="fui-new edit" href="#"></a>
+					<br>
+					<span class="else">任课教师：</span>
+					<span class="else" id="course-teacher"></span>
+					<br>
+					<span class="else">上课地点：</span>
+					<span class="else" id="course-place"></span>
+					<br>
+					<span class="else">上课时间：</span>
+					<span class="else" id="course-time"></span>
+					<br>
+					<div class="dropdown" id="download">
+						<button class="btn btn-default dropdown-toggle" type="button" id="download" data-toggle="dropdown">
+						下载
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="download">
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">一.ppt</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">二.ppt</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">三.ppt</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="#">四.ppt</a></li>
 						</ul>
 					</div>
+					<br>
 				</div>
-			</div>
-
-			<div class="right">
-				<div class="col-xs-6 homework">
-					<ul class="homework-list">
-						<volist name="homeworks" id="homework">
-							<if condition="$homework.hid eq 0">
-							<else/>
-								<li  class="homework-list-item" id="<{$homework.cid}>">
-									<div class="homework-content">
-										<div class="hw-name">
-											<h4 class="hw-course"><a href="__APP__/HomeworkPage/index/hid/<{$homework.hid}>/version/<{$homework.version}>"><{$homework.course_name}></a></h4>
-										</div>
-										<span class="hw-tag">第</span>
-										<span class="hw-tag hw-count"><{$homework.order}></span>
-										<span class="hw-tag">次</span>
-										<span class="hw-tag">作</span>
-										<span class="hw-tag">业</span>
-										<div class="homework-contents"><{$homework.content}></div>
-										<div class="hw-ddl">截止日期：</div>
-										<span class="hw-ddl-date"><{$homework.due_time}></span>
-										<span class="finish-bt">
-											<button class="btn btn-primary">完成</button>
-										</span>
-									</div>
-								</li>
-							</if>
-						</volist>
-						<!--<li class="homework-list-item">
-							<div class="homework-content">
-								<div class="hw-name">
-									<h4 class="hw-course"><a href="homework.html">计算机网络</a></h4>
-								</div>
-								<span class="hw-tag">第</span>
-								<span class="hw-tag hw-count">1</span>
-								<span class="hw-tag">次</span>
-								<span class="hw-tag">作</span>
-								<span class="hw-tag">业</span>
-								<div class="homework-contents">
-									每小组讨论完成，以小组为单位提交，只需组长提交即可，组员无需提交。<br/>
-
-									文件命名：树莓1班-TEAM-XX-Protocol.doc或.pdf。<br/>
-
-									提交文件中需列出小组成员及学号。<br/>
-
-									协议规模由你们要完成的功能决定，在覆盖基本功能的基础上，越完整越好，不是越多越好。协议的例子可以参考第２章的内容，例如参考ＨＴＴＰ协议：ＰＰＴ29-34页。<br/>
-
-									主要定义好有哪些messages，例如：加入、离开、获得在线用户、文本聊天消息等等；以及message的格式，例如以ASCII字符串的格式，message中参数之间以什么符号隔开，什么符号表示这条message结束等等；以及收到这条message的动作，简要描述一下过程，客户端收到应该做什么，服务端收到应该做什么。
-								</div>
-								<div class="hw-ddl">截止日期：</div>
-								<span class="hw-ddl-date">2014-10-05 23:59</span>
-								<span class="finish-bt">
-									<button class="btn btn-primary">完成</button>
-								</span>
-							</div>
-						</li>
-						<li class="homework-list-item">
-							<div class="homework-content">
-								<div class="hw-name">
-									<h4 class="hw-course"><a href="homework.html">编译原理</a></h4>
-								</div>
-								<span class="hw-tag">第</span>
-								<span class="hw-tag hw-count">1</span>
-								<span class="hw-tag">次</span>
-								<span class="hw-tag">作</span>
-								<span class="hw-tag">业</span>
-								<div class="homework-contents">
-									HW2.<br/>
-									提交文件： <br/>
-									calculator.y (bison文件) <br/>
-									token.l(ﬂex文件) <br/>
-									make.sh/make.bat(windows下) （编译脚本） <br/>
-									README (填写需要说明的内容)<br/>
-
-								</div>
-								<div class="hw-ddl">截止日期：</div>
-								<span class="hw-ddl-date">2014-10-05 23:59</span>
-								<span class="finish-bt">
-									<button class="btn btn-primary">完成</button>
-								</span>
-							</div>
-						</li>-->
-					</ul>
-
-					<div class="tips">
-						<h4>你真棒！没有要写的作业啦~</h4>
-					</div>
-
-					<div class="course-page">
-						<div class="info-bar">
-							<div class="course-info-bar">
-								<div class="photo">
-									<img class="photo"src="__RESOURCE__/" alt="bookpic">
-								</div>
-								<div class="info">
-									<span class="class-name"></span>
-									<a span class="fui-new edit" href="#"></a>
-									<br>
-									<span class="else">任课教师：</span>
-									<span class="else" id="course-teacher"></span>
-									<br>
-									<span class="else">上课地点：</span>
-									<span class="else" id="course-place"></span>
-									<br>
-									<span class="else">上课时间：</span>
-									<span class="else" id="course-time"></span>
-									<br>
-									<div class="dropdown" id="download">
-										<button class="btn btn-default dropdown-toggle" type="button" id="download" data-toggle="dropdown">
-										下载
-											<span class="caret"></span>
-										</button>
-										<ul class="dropdown-menu" role="menu" aria-labelledby="download">
-											<li role="presentation"><a role="menuitem" tabindex="-1" href="#">一.ppt</a></li>
-											<li role="presentation"><a role="menuitem" tabindex="-1" href="#">二.ppt</a></li>
-											<li role="presentation"><a role="menuitem" tabindex="-1" href="#">三.ppt</a></li>
-											<li role="presentation"><a role="menuitem" tabindex="-1" href="#">四.ppt</a></li>
-										</ul>
-									</div>
-									<br>
-								</div>
-								<div class="takelike">
-									<span class="fui-heart add" id="good-img"></span>
-									<span class="else else-num" id="good"></span>
-								</div>
-							</div>
-
-							<div class="h-list-info">
-								<div class="hw-list-info">
-	    							<div class="tile hw-list add-homework">
-										<span class="else"><a class="book" href="...">添加新的作业</a></span>
-	    							</div>
-								</div>
-							</div>
-						</div>
-					</div>
+				<div class="takelike">
+					<span class="fui-plus add" id="care-img"></span>
+					<span class="else else-num" id="care"></span>
+					<br>
+					<span class="fui-heart add" id="good-img"></span>
+					<span class="else else-num" id="good"></span>
 				</div>
-			</div>
 		</div>
-		<!-- jQuery 的js -->
-    <script src="__JS__/jquery.min.js"></script>
-    <!-- 其他插件的js -->
-    <script src="__JS__/flat-ui.min.js"></script>
-    <script src="__JS__/prettify.js"></script>
-    <script src="__JS__/application.js"></script>
-    <script src="__JS__/myhome.js"></script>
-    <script src="__JS__/jquery.cookie.js"></script>
+
+		<div class="h-list-info">
+		<div class="hw-list-info">
+	    <div class="tile hw-list add-homework">
+			<span class="else" onclick="createNew()"><span class="book">添加新的作业</span></span>
+	    </div>
+		</div>
+		</div>
+	</div>
+	</div>
+
+
+
+	<!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
+    <script src="__JS__/jquery.min.js"></script> 
+    <!-- 其他插件的js --> 
+    <!-- // <script src="/bootstrap/js/bootstrap.min.js"></script>  -->
+    <script src="__JS__/flat-ui.min.js"></script> 
+    <script src="__JS__/prettify.js"></script> 
+    <script src="__JS__/application.js"></script> 
+    <script src="__JS__/addcourse.js"></script> 
     <script src="__JS__/template.js"></script>
+    <script src="__JS__/jquery.cookie.js"></script>
 	</body>
 </html>
+

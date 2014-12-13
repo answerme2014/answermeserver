@@ -81,6 +81,7 @@ class MainNavigationController extends Controller {
 
 				$dataReturn['uid'] = $result;
 				$dataReturn['username'] = $username;
+				$dataReturn['experience'] = 0;
 				$dataReturn['status'] = 1;
 			} else {
 				$dataReturn['status'] = 0;

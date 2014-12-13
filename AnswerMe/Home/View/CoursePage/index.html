@@ -198,6 +198,7 @@
 			<!-- 搜索框 -->
 		<div class="left">
 			<div class="cascade-search-list">
+      <a href='http://localhost/answer_me/home.php/SearchPage'>
 				<div class="course-search todo-search">
 					<select class="search-type">
 						<option value="course-tosearch">课程</option>
@@ -205,6 +206,7 @@
 					</select>
 					<input class="course-search-field todo-search-field" type="search" value="" placeholder="Search" />
 				</div>
+        </a>
 				<!-- 省份 
 	 			<div class="dropdown">
 	  				<div class="tile todo-bg dropdownbutton">
@@ -393,7 +395,7 @@
 			</div>
 	    </div>-->
 	    <div class="tile hw-list add-homework">
-			<span class="else"><a class="book" href="...">添加新的作业</a></span>
+			<span class="else" onclick="createNew()"><span class="book">添加新的作业</span></span>
 	    </div>
 		</div>
 		</div>

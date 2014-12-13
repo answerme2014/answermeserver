@@ -196,12 +196,13 @@
    <!-- 除了添加，不要改动一切其他东西--> 
    <form role="form"> 
     <div class="span1"> 
-     <div class="input-group"> 
+     <a href='http://localhost/answer_me/home.php/SearchPage'>
+      <div class="input-group" > 
       <input type="text" class="form-control" id="search" /> 
-      <span class="input-group-btn"> <button type="submit" class="btn btn-primary" id = "searchcourse"> 搜索课程 </button> <button type="submit" class="btn btn-primary" id="searchhw"> 搜索作业 </button> </span> 
-      
+      <span class="input-group-btn"> <button type="submit" class="btn btn-primary" id = "searchcourse"> 搜索课程 </button> <button type="submit" class="btn btn-primary" id="searchhw"> 搜索作业 </button> </span>      
       
      </div>
+   </a>
      <!-- /input-group --> 
 
     </div>

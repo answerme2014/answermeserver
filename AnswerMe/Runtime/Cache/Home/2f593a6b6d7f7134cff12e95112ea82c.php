@@ -21,7 +21,7 @@
 		<!-- 导航栏 -->
     <nav class="navbar navbar-inverse" role="navigation">
       <div class="navbar-header">
-        <a class="navbar-brand" href="home.html">
+        <a class="navbar-brand" href="/answer_me/home.php/HomePage/">
           <img src="/answer_me/AnswerMe/Common/Static/resource/logo-green.jpg">
           <span>Answer Me</span>
         </a>
@@ -239,24 +239,25 @@
 			<div class="right">
 				<div class="col-xs-6 homework">
 					<ul class="homework-list">
-						<?php if(is_array($homeworks)): $i = 0; $__LIST__ = $homeworks;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$homework): $mod = ($i % 2 );++$i;?><li  class="homework-list-item" id="<?php echo ($homework["hid"]); ?>">
-								<div class="homework-content">
-									<div class="hw-name">
-										<h4 class="hw-course"><a href="/answer_me/home.php/HomeworkPage/index/hid/<?php echo ($homework["hid"]); ?>/version/<?php echo ($homework["version"]); ?>"><?php echo ($homework["course_name"]); ?></a></h4>
+						<?php if(is_array($homeworks)): $i = 0; $__LIST__ = $homeworks;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$homework): $mod = ($i % 2 );++$i; if($homework["hid"] == 0): else: ?>
+								<li  class="homework-list-item" id="<?php echo ($homework["cid"]); ?>">
+									<div class="homework-content">
+										<div class="hw-name">
+											<h4 class="hw-course"><a href="/answer_me/home.php/HomeworkPage/index/hid/<?php echo ($homework["hid"]); ?>/version/<?php echo ($homework["version"]); ?>"><?php echo ($homework["course_name"]); ?></a></h4>
+										</div>
+										<span class="hw-tag">第</span>
+										<span class="hw-tag hw-count"><?php echo ($homework["order"]); ?></span>
+										<span class="hw-tag">次</span>
+										<span class="hw-tag">作</span>
+										<span class="hw-tag">业</span>
+										<div class="homework-contents"><?php echo ($homework["content"]); ?></div>
+										<div class="hw-ddl">截止日期：</div>
+										<span class="hw-ddl-date"><?php echo ($homework["due_time"]); ?></span>
+										<span class="finish-bt">
+											<button class="btn btn-primary">完成</button>
+										</span>
 									</div>
-									<span class="hw-tag">第</span>
-									<span class="hw-tag hw-count"><?php echo ($homework["order"]); ?></span>
-									<span class="hw-tag">次</span>
-									<span class="hw-tag">作</span>
-									<span class="hw-tag">业</span>
-									<div class="homework-contents"><?php echo ($homework["content"]); ?></div>
-									<div class="hw-ddl">截止日期：</div>
-									<span class="hw-ddl-date"><?php echo ($homework["due_time"]); ?></span>
-									<span class="finish-bt">
-										<button class="btn btn-primary">完成</button>
-									</span>
-								</div>
-							</li><?php endforeach; endif; else: echo "" ;endif; ?>
+								</li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
 						<!--<li class="homework-list-item">
 							<div class="homework-content">
 								<div class="hw-name">
@@ -321,7 +322,7 @@
 						<div class="info-bar">
 							<div class="course-info-bar">
 								<div class="photo">
-									<img class="photo"src="resource/sd.jpg" alt="bookpic">
+									<img class="photo"src="/answer_me/AnswerMe/Common/Static/resource/" alt="bookpic">
 								</div>
 								<div class="info">
 									<span class="class-name"></span>

@@ -13,6 +13,7 @@ $(document).ready(function(){
         Clicklishibanben();
         $(this).css("background-color", "#00bb99")
 
+
     });
     $(".fui-heart").click(function(){
         if(i == 0) {
@@ -89,6 +90,9 @@ function Clickjubao() {
     }
     if (!username) {
         alert("你需要登录才能进行这个操作！");
+    }
+    else{
+        alert("请发邮箱至answerme@gmail.com");
     }
 }
 

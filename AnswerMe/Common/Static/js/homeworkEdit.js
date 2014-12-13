@@ -86,7 +86,7 @@ function createNew(){
             //console.log("Reply:");
             //console.log(data);
             if(data['status']==1){
-                alert("提交成功");
+                //alert("提交成功");
                 location.href='/answer_me/home.php/EditPage/index/hid/'+data['hid']+'/version/'+data['version'];
             }      
             else

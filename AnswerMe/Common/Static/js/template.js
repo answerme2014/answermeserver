@@ -69,6 +69,7 @@ function logout() {
 
                 $('.unloged').removeClass("hidden");
                 $(".loged").addClass("hidden");
+                window.location.reload();
             }
         },
         error: function() {
@@ -131,7 +132,7 @@ function register() {
                     alert("注册成功！");
 
                     //将页面重定向到“感兴趣的课程页面”
-                    window.location.href = "InterestPage";
+                    window.location.href = "http://localhost/answer_me/home.php/InterestPage";
                 } else {
                     alert(data.msg);
                 }
